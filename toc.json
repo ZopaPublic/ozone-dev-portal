@@ -34,32 +34,12 @@
       "uri": "docs/API Overview/ais.md"
     },
     {
-      "type": "item",
-      "title": "PISP API Overview",
-      "uri": "docs/API Overview/pis.md"
-    },
-    {
-      "type": "item",
-      "title": "CBPII API Overview",
-      "uri": "docs/API Overview/cbpii.md"
-    },
-    {
       "type": "divider"
     },
     {
       "type": "item",
       "title": "Account and Transaction API Specification",
       "uri": "swagger/account-info-openapi.yaml"
-    },
-    {
-      "type": "item",
-      "title": "Payment Initiation Services API Specification",
-      "uri": "swagger/payment-initiation-openapi.yaml"
-    },
-    {
-      "type": "item",
-      "title": "Card Based Payment Instrument Issuer API Specification",
-      "uri": "swagger/confirmation-funds-openapi.yaml"
     },
     {
       "type": "divider"

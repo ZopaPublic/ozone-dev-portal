@@ -172,9 +172,9 @@ Sandbox User Accounts
 
 | user | password |
 |------|----------|
-| rora |	rora.   |
-| mits |	mits.   |
-| ivsa |	ivsa.   |
+| rora |	rora   |
+| mits |	mits   |
+| ivsa |	ivsa   |
 
 Select accounts
 
