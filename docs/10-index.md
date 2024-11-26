@@ -14,7 +14,6 @@ You can find out more about Open Banking here: [What is Open Banking](https://ww
 
 Please see the following specifications we have aligned with:
 
-- [Dynamic Client Registration (DCR) Specification](https://openbankinguk.github.io/dcr-docs-pub/v3.2/dynamic-client-registration.html): Use this specification to register your TPP client to use our APIs
 - [Open ID Foundation's Financial Grade API (FAPI) Profile](https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_001.md): This specification enables user authentication of consents for open banking
 - Open Banking API Specification: Based on Open Banking Read/Write API Specification v4.0.0, this specification describes the resources that are available on our service:
   - [Accounts & Transaction Information API](../swagger/account-info-openapi.yaml)
