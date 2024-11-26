@@ -38,13 +38,13 @@ As a TPP, in order to access our Read/Write APIs, you need to be enrolled with O
 This will then enable you to access our APIs through the Zopa Developer Portal
 
 ### As a Third Party Provider, is there somewhere I can test prototype Open Banking Solutions?
- Yes, Zopa has a test facility [../40-sandbox.md](Sandbox) available through our Developer Portal.
+ Yes, Zopa has a test facility [Sandbox](../40-sandbox.md) available through our Developer Portal.
 
-Check out our [../20-getting-started.md](Get Started) guide for a step by step guide on how to start testing with our Sandbox APIs.
+Check out our [Get Started](../20-getting-started.md) guide for a step by step guide on how to start testing with our Sandbox APIs.
 
 
 ### Where are the specifications you have used to build your current APIs?
-There are full specifications provided by OBL available on their [https://openbankinguk.github.io/read-write-api-site3/v4.0/](Developer Zone) from which we’ve built our APIs.
+There are full specifications provided by OBL available on their [website](https://openbankinguk.github.io/read-write-api-site3/v4.0/) from which we’ve built our APIs.
 
 ## Response Codes
 

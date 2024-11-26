@@ -5,7 +5,7 @@
 Our API allows dynamic client registration in order to create a valid client that is able to use our Authorisation Server. We only trust Software Statement Assertions (SSAs) issued by the Open Banking Directory provided by OBL. eIDAS certificates are supported via onboarding to the Open Banking Directory (as discussed in more detail below).
 
 The url of the registration endpoint is advertised on our OIDC Discovery Endpoints (see below) using the registration_endpoint claim.
-The `aud` claim used in the outer JWT of a Dynamic Client Registration request is the OBIE issued `org_id` (as documented in the OBIE DCR v3.1 standard)
+The `aud` claim used in the outer JWT of a Dynamic Client Registration request is the OBIE issued `org_id` (as documented in the OBL DCR v3.1 standard)
 
 ## Production security profile
 
