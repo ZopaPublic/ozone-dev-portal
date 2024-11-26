@@ -1,11 +1,13 @@
 # Getting started
 
-## Dynamic Client Registration
+## Onboarding
+We do not currently support Dynamic Client Registration.
 
-Our API allows dynamic client registration in order to create a valid client that is able to use our Authorisation Server. We only trust Software Statement Assertions (SSAs) issued by the Open Banking Directory provided by OBL. eIDAS certificates are supported via onboarding to the Open Banking Directory (as discussed in more detail below).
+Please contact our Open Banking support team to be onboarded.
 
-The url of the registration endpoint is advertised on our OIDC Discovery Endpoints (see below) using the registration_endpoint claim.
-The `aud` claim used in the outer JWT of a Dynamic Client Registration request is the OBIE issued `org_id` (as documented in the OBL DCR v3.1 standard)
+Contact email: openbanking-support@zopa.com
+
+We will also retain your contact details so that you can be informed in the event of any outages or changes to our API specification, as well as to contact you regarding any technical issues.
 
 ## Production security profile
 
@@ -26,11 +28,11 @@ As defined further in the Zopa Open Banking API Specification
 
 ### OB Transport & OB Signing Certificates
 
-We recommend that TPPs use OB Transport and OB Signing certificates where possible. TPPs can use their QWACs and QSeals to onboard to the OBIE directory and generate these certificates.
+We recommend that TPPs use OB Transport and OB Signing certificates where possible. TPPs can use their QWACs and QSeals to onboard to the OBL directory and generate these certificates.
 
 ### OB WAC & OB Seal
 
-We support the use of OBWAC and OBSeal on our production and sandbox environments. TPPs can use their QWACs and QSeals to onboard to the OBIE directory and generate these certificates.
+We support the use of OBWAC and OBSeal on our production and sandbox environments. TPPs can use their QWACs and QSeals to onboard to the OBL directory and generate these certificates.
 
 ### QWACs
 

@@ -12,7 +12,7 @@ Please find more information at [Open Banking](https://www.openbanking.org.uk/)
 ### What are our Open Banking APIs?
 
 #### Account & Transactions
-These read/write APIs provide the ability for approved/authorised account information service providers (AISPs) to access a customer’s (payment service user's) account and transaction information for domestic payment accounts (for Zopa this includes the Zopa Credit Card), only when the PSU grants consent. This API is developed according to the Open Banking Read/Write API Specifications, see [https://www.openbanking.org.uk/](https://www.openbanking.org.uk/)
+These read/write APIs provide the ability for approved/authorised account information service providers (AISPs) to access a customer’s (payment service user's) account and transaction information for domestic payment accounts (for Zopa this includes the Zopa Credit Card), only when the PSU grants consent. This API is developed according to the Open Banking Read/Write API Specifications, see: [https://www.openbanking.org.uk/](https://www.openbanking.org.uk/)
 
 
 ### What are the roles a TPP can perform?
@@ -28,14 +28,11 @@ Technical Service Provider (TSP)
 Card Based Payment Instrument Issuer (CBPII)
 
 
-
 ## Read/Write APIs
 
 
 ### How can I access Zopa's Read/Write APIs?
-As a TPP, in order to access our Read/Write APIs, you need to be enrolled with Open Banking (Enrolling Onto Open Banking Guide) and registered with the Financial Conduct Authority (FCA) as an AISP.
-
-This will then enable you to access our APIs through the Zopa Developer Portal
+As a TPP, in order to access our Read/Write APIs, you need to be enrolled with Open Banking and registered with the Financial Conduct Authority (FCA) as an AISP. This will then enable you to access our APIs.
 
 ### As a Third Party Provider, is there somewhere I can test prototype Open Banking Solutions?
  Yes, Zopa has a test facility [Sandbox](../40-sandbox.md) available through our Developer Portal.
@@ -49,7 +46,7 @@ There are full specifications provided by OBL available on their [website](https
 ## Response Codes
 
 ### I am getting a 401 unauthorized response when invoking /token endpoints
-(1) Make sure you have registered your SSA in Zopa Developer Portal and the subscription of the Accounts Service Provider API and/or Payments Service Provider API is approved by Zopa
+(1) Make sure you have your SSA is registered and the subscription of the Accounts Service Provider API and/or Payments Service Provider API is approved by Zopa. To do this please contact openbanking-support@zopa.com
 
 (2) Make sure you are following client_secret_post for the OIDC calls
 
