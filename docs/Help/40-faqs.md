@@ -32,7 +32,7 @@ Card Based Payment Instrument Issuer (CBPII)
 
 
 ### How can I access Zopa's Read/Write APIs?
-As a TPP, in order to access our Read/Write APIs, you need to be enrolled with Open Banking (Enrolling Onto Open Banking Guide) and registered with the Financial Conduct Authority (FCA) as an AISP. This will then enable you to access our APIs.
+As a TPP, in order to access our Read/Write APIs, you need to be enrolled with Open Banking and registered with the Financial Conduct Authority (FCA) as an AISP. This will then enable you to access our APIs.
 
 ### As a Third Party Provider, is there somewhere I can test prototype Open Banking Solutions?
  Yes, Zopa has a test facility [Sandbox](../40-sandbox.md) available through our Developer Portal.
