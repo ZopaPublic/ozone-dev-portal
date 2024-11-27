@@ -29,6 +29,4 @@ Our Sandbox fully reflects our production environment and provides an easy route
 
 To access the production environment, you must be a TPP authorised by the FCA or passported into the UK. Instructions for accessing our Production APIs are [here](./docs/30-production.md). Please email us on openbanking-support@zopa.com when you onboard so we can help with any issues and ensure you are notified about any updates to the API.
 
-See our [Getting Started](./docs/20-getting-started.md) page for instructions on accessing our sandbox and production APIs
-
-If you require test accounts please contact: openbanking-support@zopa.com
+See our [Getting Started](./docs/20-getting-started.md) page for instructions on accessing our sandbox and production APIs.
