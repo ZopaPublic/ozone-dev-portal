@@ -11,7 +11,7 @@ Please contact our Open Banking support team to be onboarded.
 
 Contact email: openbanking-support@zopa.com
 
-We will also retain your contact details so that you can be informed in the event of any outages or changes to our API specification, as well as to contact you regarding any technical issues.
+We will also retain your contact details so that you can be informed in the event of any outages or changes to our API specification, as well as to contact you regarding any technical issues. We recommend using a team email address over an individual contact.
 
 ## Authorisation Server URLs
 - OIDC Well Known endpoint: https://auth1.openbanking.zopa.com/.well-known/openid-configuration
