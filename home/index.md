@@ -1,6 +1,6 @@
 # Open Banking Developer Portal
 
-These APIs are currently unavailable for TPPs to use. To be informed about when they are available, please email openbanking-support@zopa.com
+These APIs are currently unavailable for TPPs to use. To be informed about when they are available, please email openbanking-support@zopa.com. We recommend using a team email address over an individual contact.
 
 ## Open Banking
 
