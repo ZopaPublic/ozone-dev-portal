@@ -9,7 +9,7 @@ The base URL for all AIS APIs is: `https://rs1.openbanking.zopa.com/open-banking
 [Account Access Consents API](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml#operations-tag-Account_Access)
 
 ## Accounts
-[Accounts API](/perry/developer/documentation?resource=euhub-zopa-portal-new&ocument=swagger/account-info-openapi.yaml#operations-tag-Accounts)
+[Accounts API](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml#operations-tag-Accounts)
 
 Please note, currently only **Zopa Credit Card** accounts support access via AIS.
 
