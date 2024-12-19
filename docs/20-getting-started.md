@@ -19,8 +19,9 @@ As defined further in the Zopa Open Banking API Specification
 - Token Endpoint Auth Singing Algorithms: `PS256`
 - Token Endpoint Auth Methods: `private_key_jwt`, `tls_client_auth`
 
-> For private_key_jwt - the `aud` claim is the url of the token endpoint as specified in OIDC client authentication
-> The request object used in OIDC flows the aud claim is the issuer url from the Zopa ASPSP .wellknown endpoint (linked below).
+>For private_key_jwt - the `aud` claim is the url of the token endpoint as specified in OIDC client authentication.
+
+> The request object used in OIDC flows the aud claim is the issuer url from the Zopa ASPSP .wellknown endpoint: https://auth1.openbanking.zopa.com/.well-known/openid-configuration
 
 > Note: Our Sandbox API also offers less strict profiles to assist with integration testing. See below for more details.
 

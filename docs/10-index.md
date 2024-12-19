@@ -6,7 +6,7 @@ We recommend using a team email address over an individual contact.
 
 ## Open Banking
 
-The Zopa Open Banking API is based on the Open Banking Standard which allows regulated Third Party Providers (TPPs) to access Account Information Services (AIS) for Zopa Credit Cards. Access to these services on behalf of members is controlled by strong customer authentication within Zopa apps as part of OpenID Connect authorisation flows.
+The Zopa Open Banking API is based on the Open Banking Standard which allows regulated Third Party Providers (TPPs) to access Account Information Services (AIS) for Zopa Credit Cards. Access to these services on behalf of members is controlled by strong customer authentication within the Zopa app as part of OpenID Connect authorisation flows.
 
 We support app->app and mobile-web->app authentication flows.
 
