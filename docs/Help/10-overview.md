@@ -10,6 +10,8 @@ An AISP (Account Information Service Provider) is authorised by a competent auth
 ### ASPSP
 The ASPSPs (Account Servicing Payment Service Providers) are the account providers. ASPSPs provide Open Banking APIs which allow access to customer account information (for example, to AISPs), and also allow third-party providers (TPPs) to initiate payments from the account provider’s customers’ accounts.
 
+The customer must give specific permission to the entity that wants to access their account information and initiate payments on their behalf.
+
 ### CBPII
 A card-based payment instrument issuer is a third-party card provider that enables a customer to make payments from a bank account held with an ASPSP.
 
@@ -19,7 +21,7 @@ In Open Banking, a Competent Authority is a regulator who can authorise entities
 ### Directory
 The Open Banking Directory is the canonical list of providers who are authorised to take part in the Open Banking ecosystem. The directory handles authentication between registered providers.
 
-Directory Sandbox
+### Directory Sandbox
 The Open Banking Directory Sandbox provides a test instance of the real directory so that providers can test their implementations before going live. You’ll need to registered with the Open Banking Directory Sandbox in order to use the Zopa API sandbox.
 
 ### FCA
