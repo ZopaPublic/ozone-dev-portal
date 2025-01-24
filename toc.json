@@ -34,9 +34,6 @@
       "uri": "docs/API Overview/ais.md"
     },
     {
-      "type": "divider"
-    },
-    {
       "type": "item",
       "title": "Account and Transaction API Specification",
       "uri": "swagger/account-info-openapi.yaml"
@@ -70,6 +67,11 @@
       "type": "item",
       "title": "Contact Us",
       "uri": "docs/60-contact-us.md"
+    },
+    {
+      "type": "item",
+      "title": "Modified Customer Interface",
+      "uri": "docs/70-modified-customer-interface.md"
     }
   ]
 }
