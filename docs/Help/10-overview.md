@@ -5,12 +5,10 @@
 When used in Open Banking, ​Account information​ refers to an API that gives access to account and transaction information. To gain that access there needs to be two types of authorisation. On one side, the entity accessing the API must be an authorised institution (known as an AISP). On the other side, the person or business that owns that account (called the PSU) must give the AISP permission to access that specific account.
 
 ### AISP
-An AISP (Account Information Service Provider) is authorised by a competent authority to access the account and transaction information of individuals and businesses who have given it permission do so. An AISP might use this access to provide a aggregation service, for example, allowing people to see several of their bank accounts in one place.
+An AISP (Account Information Service Provider) is authorised by a competent authority to access the account and transaction information of individuals and businesses who have given it permission do so. For example, an AISP might use this access to provide an aggregation service, for example, allowing people to see several of their bank accounts in one place.
 
 ### ASPSP
-The ASPSPs (Account Servicing Payment Service Providers) are the account providers. These APIs provide access to customer account information (for example, to AISPs) and also allow third-party providers (TPPs) to initiate payments from the account provider’s customers’ accounts.
-
-The customer must give specific permission to the entity that wants to access their account information and initiate payments on their behalf.
+The ASPSPs (Account Servicing Payment Service Providers) are the account providers. ASPSPs provide Open Banking APIs which allow access to customer account information (for example, to AISPs), and also allow third-party providers (TPPs) to initiate payments from the account provider’s customers’ accounts.
 
 ### CBPII
 A card-based payment instrument issuer is a third-party card provider that enables a customer to make payments from a bank account held with an ASPSP.
