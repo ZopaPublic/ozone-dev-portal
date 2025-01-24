@@ -15,12 +15,12 @@ We provide a regulatory sandbox that fully reflects our production APIs.
 ### Step by Step guide to connect to sandbox
 
 #### Step 1: Pre-Requisites for TPP
-Ensure that the following pre-requisites are met before onboarding onto Zopa.
-The TPP has registered on the Directory Sandbox - https://directory.openbanking.org.uk/s/login/
-The TPP has at least one software statement created on the Directory Sandbox environment
-The TPP has at least one transport certificate created for each of its software statements.
-The TPP has at least one redirect URI for each of its software statements.
-The TPP has a copy of the OB root and issuing certificate attached.
+Ensure that the following pre-requisites are met before onboarding onto Zopa:
+- The TPP has registered on the Directory Sandbox - https://directory.openbanking.org.uk/s/login/
+- The TPP has at least one software statement created on the Directory Sandbox environment
+- The TPP has at least one transport certificate created for each of its software statements.
+- The TPP has at least one redirect URI for each of its software statements.
+- The TPP has a copy of the OB root and issuing certificate attached.
 
 #### Step 2: TPP should contact our Open Banking support team
 We do not currently support Dynamic Client Registration.
