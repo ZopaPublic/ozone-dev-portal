@@ -1,8 +1,6 @@
 # Introduction
 
-These APIs are currently unavailable for TPPs to use. To be informed about when they are available, please email openbanking-support@zopa.com
-
-We recommend using a team email address over an individual contact.
+If you are a TPP, please email openbanking-support@zopa.com to enquire about onboarding with us to use these APIs.
 
 ## Open Banking
 
