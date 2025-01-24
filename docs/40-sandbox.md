@@ -32,7 +32,7 @@ Contact email: openbanking-support@zopa.com
 We will also retain your contact details so that you can be informed in the event of any outages or changes to our API specification, as well as to contact you regarding any technical issues. We recommend using a team email address over an individual contact.
 
 #### Step 3: Import Environment Files and Collections To Postman
-3.1. Import Environment Files and Collections into Postman
+3.1. Import Environment Files and Collections into Postman, you can find the postmap collection under [resources](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/Help/30-resources.md)
 ![postmanimage](/assets/images/postmanimport1.png)
 
 ![](/assets/images/postmanimport2.png)
@@ -41,8 +41,8 @@ We will also retain your contact details so that you can be informed in the even
 
 3.3) Add Client Certificates
 Add the following ASPSP end points into Postman;
-https://rs1.openbanking-sandbox.zopa.com
-https://auth1.openbanking-sandbox.zopa.com/token
+- https://rs1.openbanking-sandbox.zopa.com
+- https://auth1.openbanking-sandbox.zopa.com/token
 
 The CRT should be set to the transport certificate downloaded from the open banking directory. The Key value should be set to the private key for the transport certificate.
 
