@@ -19,4 +19,4 @@ We will also retain your contact details so that you can be informed in the even
 - Authorisation URL: https://openbanking.zopa.com/u/openbanking
 
 ## Resource Server URLs
-- Account Information Services API: https://rs1.openbanking.zopa.com/open-banking/v3.1/aisp/**
+- Account Information Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**
