@@ -1,7 +1,7 @@
 # Developer Documentation for Modified Customer Interface
 
 ## Overview
-We support connections via our Modified Customer Interface as a contingency mechanism for when the main dedicated interface (i.e. the APIs) are down, this may be used in the event the dedicated interface faces significant disruption. We will notify the onboarded TPPs through the contact details provided, and also via the [Outages Log](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/50-planned-updates.md) if we have had to invoked the contingency mechanism. This document provides essential information for using the interface.
+We support connections via our Modified Customer Interface as a contingency mechanism for when the main dedicated interface (i.e. the APIs) are down, this may be used in the event the dedicated interface faces significant disruption. We will notify the onboarded TPPs through the contact details provided, and also via the [Outages Log](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/50-planned-updates.md), if we have had to invoked the contingency mechanism. This document provides essential information for using the interface.
 
 To access the customer interface, use the following URL: https://mci.openbanking.zopa.com/
 

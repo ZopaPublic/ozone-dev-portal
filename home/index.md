@@ -19,3 +19,5 @@ We are a registered Account Servicing Payment Service Provider (ASPSP) who provi
 - [Planned Updates and Outages](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/50-planned-updates.md)
 - [AISP API Overview](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/API%20Overview/ais.md)
 - [Account and Transaction API Specification](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml)
+- [Modified Customer Interface](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/70-modified-customer-interface.md)
+- [Quarterly Availability and Performance Data](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/80-performance-metrics.md)
