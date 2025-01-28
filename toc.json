@@ -72,6 +72,11 @@
       "type": "item",
       "title": "Modified Customer Interface",
       "uri": "docs/70-modified-customer-interface.md"
+    },
+    {
+      "type": "item",
+      "title": "Quarterly Availability and Performance Data",
+      "uri": "docs/80-performance-metrics.md"
     }
   ]
 }
