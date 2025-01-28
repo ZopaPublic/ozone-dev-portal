@@ -41,7 +41,16 @@
     {
       "type": "divider"
     },
-
+    {
+      "type": "item",
+      "title": "Modified Customer Interface",
+      "uri": "docs/70-modified-customer-interface.md"
+    },
+    {
+      "type": "item",
+      "title": "Quarterly Availability and Performance Data",
+      "uri": "docs/80-performance-metrics.md"
+    },
     {
       "type": "group",
       "title": "Help",
@@ -67,16 +76,6 @@
       "type": "item",
       "title": "Contact Us",
       "uri": "docs/60-contact-us.md"
-    },
-    {
-      "type": "item",
-      "title": "Modified Customer Interface",
-      "uri": "docs/70-modified-customer-interface.md"
-    },
-    {
-      "type": "item",
-      "title": "Quarterly Availability and Performance Data",
-      "uri": "docs/80-performance-metrics.md"
     }
   ]
 }
