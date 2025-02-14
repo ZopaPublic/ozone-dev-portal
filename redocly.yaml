@@ -1,8 +1,6 @@
 apis:
   main:
-    root: path/to/your-openapi.yaml
-  test:
-    root: path/to/another-openapi.yaml
+    root: swagger/account-info-openapi.yaml
 extends:
   - recommended
 rules:

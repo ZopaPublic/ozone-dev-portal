@@ -16,7 +16,7 @@ As defined further in the Zopa Open Banking API Specification
 - ID Token Signing Algorithm: `PS256`
 - Response Types: `code id_token`
 - Request Object Signing Algorithms: `PS256`
-- Token Endpoint Auth Singing Algorithms: `PS256`
+- Token Endpoint Auth Signing Algorithms: `PS256`
 - Token Endpoint Auth Methods: `private_key_jwt`, `tls_client_auth`
 
 >For private_key_jwt - the `aud` claim is the url of the token endpoint as specified in OIDC client authentication.
@@ -26,10 +26,6 @@ As defined further in the Zopa Open Banking API Specification
 > Note: Our Sandbox API also offers less strict profiles to assist with integration testing. See below for more details.
 
 ## Certificate Support
-
-### OB Transport & OB Signing Certificates
-
-We recommend that TPPs use OB Transport and OB Signing certificates where possible. TPPs can use their QWACs and QSeals to onboard to the OBL directory and generate these certificates.
 
 ### OB WAC & OB Seal
 
