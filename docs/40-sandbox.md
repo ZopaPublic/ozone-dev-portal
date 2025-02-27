@@ -9,8 +9,8 @@ We provide a regulatory sandbox that fully reflects our production APIs.
 ### Regulatory Sandbox
 
 - Authorisation Server 1: Provides both strict and permissive client profiles in headless and non headless options.
-- OIDC Well Known endpoint: https://auth1.openbanking-sandbox.zopa.com/.well-known/openid-configuration
-- baseUrl: https://auth1.openbanking-sandbox.zopa.com/
+- OIDC Well Known endpoint: `https://auth1.openbanking-sandbox.zopa.com/.well-known/openid-configuration`
+- baseUrl: `https://auth1.openbanking-sandbox.zopa.com/`
 
 ### Step by Step guide to connect to sandbox
 
