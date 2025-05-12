@@ -20,3 +20,6 @@ We will also retain your contact details so that you can be informed in the even
 
 ## Resource Server URLs
 - Account Information Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**
+
+## Tokens
+Our refresh tokens last one year, after this TPPs will need to generate a new consent in order to get a new refresh token.
