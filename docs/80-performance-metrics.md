@@ -21,7 +21,5 @@ Performance will be reported for each interface based on the daily average (medi
 - The median time taken for Zopa to respond to payment service user requests, measured in milliseconds.
 
 ## Data
-
-
 - [Q4 2024](/assets/performance_pdfs/2024Q4.pdf)
 - [Q1 2025](/assets/performance_pdfs/2025Q1.pdf)
