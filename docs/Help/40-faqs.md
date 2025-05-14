@@ -12,7 +12,7 @@ Please find more information at [Open Banking](https://www.openbanking.org.uk/)
 ### What are our Open Banking APIs?
 
 #### Account & Transactions
-These read/write APIs provide the ability for approved/authorised account information service providers (AISPs) to access a customer’s (payment service user's) account and transaction information for domestic payment accounts (for Zopa this includes the Zopa Credit Card), only when the PSU grants consent. This API is developed according to the Open Banking Read/Write API Specifications, see: [https://www.openbanking.org.uk/](https://www.openbanking.org.uk/)
+These read/write APIs provide the ability for approved/authorised account information service providers (AISPs) to access a customer’s (payment service user's) account and transaction information for domestic payment accounts (for Zopa this includes the Zopa Credit Card and Zopa bank account), only when the user grants consent. This API is developed according to the Open Banking Read/Write API Specifications, see: [https://www.openbanking.org.uk/](https://www.openbanking.org.uk/)
 
 
 ### What are the roles a TPP can perform?
