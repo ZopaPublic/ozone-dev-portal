@@ -260,7 +260,7 @@ paths:
     get:
       tags:
         - Parties
-      summary: Get Parties
+      summary: Get Party
       operationId: GetAccountsAccountIdParty
       parameters:
         - $ref: '#/components/parameters/AccountId'
@@ -367,7 +367,7 @@ paths:
     get:
       tags:
         - Parties
-      summary: Get Parties
+      summary: Get Party
       operationId: GetParty
       parameters:
         - $ref: '#/components/parameters/x-fapi-auth-date'
@@ -464,13 +464,6 @@ components:
       name: AccountId
       in: path
       description: AccountId
-      required: true
-      schema:
-        type: string
-    StatementId:
-      name: StatementId
-      in: path
-      description: StatementId
       required: true
       schema:
         type: string
@@ -4237,7 +4230,7 @@ components:
         Balance type, in a coded form. <br />
         For a full list of enumeration values refer to `ExternalBalanceType1Code` in *ISO_External_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets).
       type: string
-      example: CLAV
+      example: ITAV
       enum:
         - CLAV
         - CLBD
