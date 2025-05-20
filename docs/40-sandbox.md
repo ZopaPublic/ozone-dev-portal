@@ -32,7 +32,8 @@ Contact email: openbanking-support@zopa.com
 We will also retain your contact details so that you can be informed in the event of any outages or changes to our API specification, as well as to contact you regarding any technical issues. We recommend using a team email address over an individual contact.
 
 #### Step 3: Import Environment Files and Collections To Postman
-3.1. Import Environment Files and Collections into Postman, you can find the postmap collection under [resources](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/Help/30-resources.md)
+3.1. Import Environment Files and Collections into Postman, you can find the postman collection under [resources](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/Help/30-resources.md)
+For the environment file, this will be sent to you once you have been onboarded.
 ![postmanimage](/assets/images/postmanimport1.png)
 
 ![](/assets/images/postmanimport2.png)
@@ -54,7 +55,7 @@ In Postman settings ensure SSL Certificate Verification is set to off.
 
 4.1) Client Credentials Grant
 
-![](/assets/images/ccg.png)
+![](/assets/images/ccg.jpeg)
 
 4.2) Account Access Consent
 
@@ -63,7 +64,7 @@ In Postman settings ensure SSL Certificate Verification is set to off.
 4.3) PSU Consent Flow
 TPPs can generate the consent flow URL by postman
 
-![](/assets/images/consent1.png)
+![](/assets/images/consent1.jpeg)
 
 Once the URL is constructed, open the URL to initiate the PSU consent flow
 
@@ -89,7 +90,7 @@ Once the PSU consent is successful, Zopa will redirect back to the redirect URI.
 
 4.4) Generate the access token
 
-![](/assets/images/accesstoken.png)
+![](/assets/images/accesstoken.jpeg)
 
 #### Step 5: Retrieve Account and Transaction Data
 Retrieve Account Data
