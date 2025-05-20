@@ -9,7 +9,7 @@
 
 ## Change Logs
 
-| Version/Tag | Date       | Changes                                                                       |
-|-------------|------------|-------------------------------------------------------------------------------|
-|             |            |                                                                               |
-|             |            |                                                                               |
+| Date       | Changes                                                                       |
+|------------|-------------------------------------------------------------------------------|
+|June 2025   |Added support for Accounts, Balance, and Transactions endpoints for Zopa bank accounts. |
+|            |                                                                               |
