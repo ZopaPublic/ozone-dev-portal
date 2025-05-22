@@ -43,7 +43,7 @@ For the environment file, this will be sent to you once you have been onboarded.
 3.3) Add Client Certificates
 Add the following ASPSP end points into Postman;
 - https://rs1.openbanking-sandbox.zopa.com
-- https://auth1.openbanking-sandbox.zopa.com/token
+- https://as1.openbanking-sandbox.zopa.com/token
 
 The CRT should be set to the transport certificate downloaded from the open banking directory. The Key value should be set to the private key for the transport certificate.
 
