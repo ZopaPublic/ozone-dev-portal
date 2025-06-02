@@ -1,5 +1,4 @@
 # FAQs
-
 ## General
 
 ### What is Open Banking?

@@ -1,5 +1,4 @@
 # Quarterly Availability and Performance Metrics
-
 ## Overview
 The figures below provide insight into our performance and availability regarding our Open Banking APIs. 
 
