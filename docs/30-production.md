@@ -1,8 +1,13 @@
 # Production
 
-Below are the paths of our well-known endpoints for the production environment.
+## Authorisation Server URLs
+- OIDC Well Known endpoint: `https://auth1.openbanking.zopa.com/.well-known/openid-configuration`
+- baseUrl: `https://auth1.openbanking.zopa.com/`
+- Authorisation URL (app only): `zopa://consent-access-request?client_id={{ the client ID }}&response_type=code&scope=openid%20accounts&request={{the JWT token}}`
 
-Our production authorisation server uses the strict profile defined above and testable in the Sandbox.
+## Resource Server URLs
+- Account Information Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**
+
 
 ## Onboarding
 We do not currently support Dynamic Client Registration.
@@ -42,14 +47,6 @@ We support the use of QWACs, but this is not our recommended approach. TPPs faci
 ### QSeal
 
 We support the use of QSeals that have been attached to your software statement in the OB Directory.
-
-## Authorisation Server URLs
-- OIDC Well Known endpoint: `https://auth1.openbanking.zopa.com/.well-known/openid-configuration`
-- baseUrl: `https://auth1.openbanking.zopa.com/`
-- Authorisation URL (app only): `zopa://consent-access-request?client_id={{ the client ID }}&response_type=code&scope=openid%20accounts&request={{the JWT token}}`
-
-## Resource Server URLs
-- Account Information Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**
 
 ## Tokens
 Our refresh tokens last one year, after this TPPs will need to generate a new consent in order to get a new refresh token.
