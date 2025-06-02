@@ -33,7 +33,7 @@ We will also retain your contact details so that you can be informed in the even
 
 #### Step 3: Import Environment Files and Collections To Postman
 3.1. Import Environment Files and Collections into Postman, you can find the postman collection under [resources](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/Help/30-resources.md)
-For the environment file, this will be sent to you once you have been onboarded.
+The environment file will be securely sent to you once you have been onboarded. Please note that the sandbox supports less strict security profiles than production.
 ![postmanimage](/assets/images/postmanimport1.png)
 
 ![](/assets/images/postmanimport2.png)
