@@ -26,7 +26,7 @@ The Interim Available balance is the value displayed to our customers within the
 Pagination is supported on `GET /accounts/{AccountId}/transactions` end point with a page size of 100 transactions.
 
 #### Proprietary Bank Transaction Codes
-The proprietary bank transaction codes returned vary between Zopa products. Details of these can be found [here](</docs/API Overview/proprietarybanktransactioncodes.md>).
+The proprietary bank transaction codes returned vary between Zopa products. Details of these can be found [here](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/API Overview/pbtc.md).
 
 
 ## Offers
