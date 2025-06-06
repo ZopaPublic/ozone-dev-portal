@@ -1,6 +1,6 @@
 # AISP API Overview
 
-Please note, currently only **Zopa Credit Card** accounts support access via AIS.
+Please note, currently only the **Zopa Credit Card** and **Zopa bank account (current account)** support access via AIS.
 
 ## Base URL
 The base URL for all AIS APIs is: `https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**`
@@ -11,29 +11,35 @@ The base URL for all AIS APIs is: `https://rs1.openbanking.zopa.com/open-banking
 ## Accounts
 [Accounts API](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml#operations-tag-Accounts)
 
-Please note, currently only **Zopa Credit Card** accounts support access via AIS.
+Provides details of accounts the customer has consented to share. Please note, currently only the **Zopa Credit Card** and **Zopa bank account (current account)** support access via AIS, and so any other Zopa accounts a customer may hold (such as Savings accounts) cannot be shared this way.
 
 ## Balances
 [Balances API](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml#operations-tag-Balances)
 
-Balances shown in this endpoint provide the `InterimAvailable` value.
+Balances shown in this endpoint provide the Interim Available (`ITAV`) balance type, as well as the Credit Limit for Zopa Credit Cards.
 
-`InterimAvailable` balance is the value displayed to our members within the Zopa apps.
+The Interim Available balance is the value displayed to our customers within the Zopa app.
 
 ## Transactions
 [Transactions API](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml#operations-tag-Transactions)
 
-Pagination is supported on GET /accounts/{AccountId}/transactions end point with a page size of 100 transactions.
+Pagination is supported on `GET /accounts/{AccountId}/transactions` end point with a page size of 100 transactions.
+
+#### Proprietary Bank Transaction Codes
+The proprietary bank transaction codes returned vary between Zopa products. Details of these can be found [here](</docs/API Overview/proprietarybanktransactioncodes.md>).
 
 
 ## Offers
 [Offers API](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml#operations-tag-Offers)
 
+Please note - this endpoint is only supported by the **Zopa Credit Card**.
 
-## Parties
-[Parties API](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml#operations-tag-Parties)
+
+## Party
+[Party API](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml#operations-tag-Party)
 
 
 ## Statements
 [Statements API](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml#operations-tag-Statements)
 
+Please note - this endpoint is only supported by the **Zopa Credit Card**.
