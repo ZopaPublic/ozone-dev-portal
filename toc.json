@@ -24,14 +24,25 @@
       "type": "divider"
     },
     {
-      "type": "item",
-      "title": "AISP API Overview",
-      "uri": "docs/API Overview/ais.md"
-    },
-    {
-      "type": "item",
-      "title": "Account and Transaction API Specification",
-      "uri": "swagger/account-info-openapi.yaml"
+      "type": "group",
+      "title": "API Overview",
+      "items": [
+        {
+          "type": "item",
+          "title": "AIS Overview",
+          "uri": "docs/API Overview/ais.md"
+        },
+        {
+          "type": "item",
+          "title": "Proprietary Bank Transaction Code Definitions",
+          "uri": "docs/API Overview/pbtc.md"
+        },
+        {
+          "type": "item",
+          "title": "Account and Transaction API Specification",
+          "uri": "swagger/account-info-openapi.yaml"
+        }
+      ]
     },
     {
       "type": "divider"
