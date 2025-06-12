@@ -1,4 +1,4 @@
-# AISP API Overview
+# Account Information Services API Overview
 
 Please note, currently only the **Zopa Credit Card** and **Zopa bank account (current account)** support access via AIS.
 
