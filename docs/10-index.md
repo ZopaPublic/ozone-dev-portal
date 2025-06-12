@@ -19,6 +19,7 @@ Please see the following specifications we have aligned with:
 - [Open ID Foundation's Financial Grade API (FAPI) Profile](https://bitbucket.org/openid/fapi/src/master/Financial_API_WD_001.md): This specification enables user authentication of consents for open banking
 - Open Banking API Specification: Based on Open Banking Read/Write API Specification v4.0.0, this specification describes the resources that are available on our service:
   - [Accounts & Transaction Information API](../swagger/account-info-openapi.yaml)
+  - [Payment Initiation API](../swagger/payment-initiation-openapi.yaml)
 
 ## Getting started
 
