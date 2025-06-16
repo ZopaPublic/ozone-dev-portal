@@ -1928,7 +1928,7 @@
           "//     header: {",
           "//         'content-type': 'application/json',",
           "//         'kid': '',",
-          "//         'iss': '/HQuZPIt3ipkh33Uxytox1E',",
+          "//         'iss': '',",
           "//         'tan': 'openbanking.org.uk',",
           "//         'key': '(TPP SHOULD ENTER THEIR KEY HERE)'",
           "//     }",
