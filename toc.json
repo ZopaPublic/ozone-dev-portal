@@ -34,13 +34,23 @@
         },
         {
           "type": "item",
-          "title": "Proprietary Bank Transaction Code Definitions",
-          "uri": "docs/API Overview/pbtc.md"
+          "title": "PIS Overview",
+          "uri": "docs/API Overview/pis.md"
         },
         {
           "type": "item",
           "title": "Account and Transaction API Specification",
           "uri": "swagger/account-info-openapi.yaml"
+        },
+        {
+          "type": "item",
+          "title": "Payment Initiation API Specification",
+          "uri": "swagger/payment-initiation-openapi.yaml"
+        },
+        {
+          "type": "item",
+          "title": "Proprietary Bank Transaction Code Definitions",
+          "uri": "docs/API Overview/pbtc.md"
         }
       ]
     },
