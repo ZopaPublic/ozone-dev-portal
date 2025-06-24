@@ -32,7 +32,7 @@ As defined further in the Zopa Open Banking API Specification
 
 > The request object used in OIDC flows the aud claim is the issuer url from the Zopa ASPSP .wellknown endpoint: `https://auth1.openbanking.zopa.com/.well-known/openid-configuration`
 
-> Note: Our Sandbox API also offers less strict profiles to assist with integration testing. See below for more details.
+> Note: Our Sandbox API also offers less strict profiles to assist with integration testing.
 
 ## Certificate Support
 
