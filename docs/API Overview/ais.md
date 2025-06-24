@@ -48,7 +48,6 @@ Please note - this endpoint will only return data for the **Zopa bank account** 
 
 Please note - this endpoint will only return data for the **Zopa Credit Card**, if this endpoint is called for the **Zopa bank account** (Current Account) then you will receive a `200` status code with no data.
 
-
 ## Party
 [Party API](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml#operations-tag-Party)
 
