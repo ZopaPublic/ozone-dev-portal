@@ -29,7 +29,7 @@ Pagination is supported on `GET /accounts/{AccountId}/transactions` end point wi
 The proprietary bank transaction codes returned vary between Zopa products. Details of these can be found [here](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/API%20Overview/pbtc.md)
 
 ## Beneficiaries
--[Beneficiaries API](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml#operations-tag-Beneficiaries)
+[Beneficiaries API](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml#operations-tag-Beneficiaries)
 
 Please note - this endpoint will only return data for the **Zopa bank account** (Current Account), if this endpoint is called for the **Zopa Credit Card** then you will receive a `200` status code with no data.
 
