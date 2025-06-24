@@ -1,6 +1,6 @@
 # Account Information Services API Overview
 
-Please note, currently only the **Zopa Credit Card** and **Zopa bank account** (Current Account) support access via AIS.
+Please note, only the **Zopa Credit Card** and **Zopa bank account** (Current Account) support access via AIS.
 
 ## Base URL
 The base URL for all AIS APIs is: `https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**`
