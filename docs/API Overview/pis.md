@@ -1,7 +1,7 @@
 # Payment Initiation Services API Overview
 
 ## Base URL
-The base URL for all AIS APIs is: `https://rs1.openbanking.zopa.com/open-banking/v4.0/pisp/**`
+The base URL for all PIS APIs is: `https://rs1.openbanking.zopa.com/open-banking/v4.0/pisp/**`
 
 ## Supported Payment Types
 The Zopa API currently only supports:
