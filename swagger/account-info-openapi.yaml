@@ -221,6 +221,76 @@ paths:
       security:
         - PSUOAuth2Security:
             - accounts
+  /accounts/{AccountId}/beneficiaries:
+    get:
+      tags:
+        - Beneficiaries
+      summary: Get Beneficiaries
+      operationId: GetAccountsAccountIdBeneficiaries
+      parameters:
+        - $ref: '#/components/parameters/AccountId'
+        - $ref: '#/components/parameters/x-fapi-auth-date'
+        - $ref: '#/components/parameters/x-fapi-customer-ip-address'
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/Authorization'
+        - $ref: '#/components/parameters/x-customer-user-agent'
+      responses:
+        '200':
+          $ref: '#/components/responses/200AccountsAccountIdBeneficiariesRead'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '401':
+          $ref: '#/components/responses/401Error'
+        '403':
+          $ref: '#/components/responses/403Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '405':
+          $ref: '#/components/responses/405Error'
+        '406':
+          $ref: '#/components/responses/406Error'
+        '429':
+          $ref: '#/components/responses/429Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+      security:
+        - PSUOAuth2Security:
+            - accounts
+  /accounts/{AccountId}/direct-debits:
+    get:
+      tags:
+        - Direct Debits
+      summary: Get Direct Debits
+      operationId: GetAccountsAccountIdDirectDebits
+      parameters:
+        - $ref: '#/components/parameters/AccountId'
+        - $ref: '#/components/parameters/x-fapi-auth-date'
+        - $ref: '#/components/parameters/x-fapi-customer-ip-address'
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/Authorization'
+        - $ref: '#/components/parameters/x-customer-user-agent'
+      responses:
+        '200':
+          $ref: '#/components/responses/200AccountsAccountIdDirectDebitsRead'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '401':
+          $ref: '#/components/responses/401Error'
+        '403':
+          $ref: '#/components/responses/403Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '405':
+          $ref: '#/components/responses/405Error'
+        '406':
+          $ref: '#/components/responses/406Error'
+        '429':
+          $ref: '#/components/responses/429Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+      security:
+        - PSUOAuth2Security:
+            - accounts
   /accounts/{AccountId}/offers:
     get:
       tags:
@@ -272,6 +342,41 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/200AccountsAccountIdPartyRead'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '401':
+          $ref: '#/components/responses/401Error'
+        '403':
+          $ref: '#/components/responses/403Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '405':
+          $ref: '#/components/responses/405Error'
+        '406':
+          $ref: '#/components/responses/406Error'
+        '429':
+          $ref: '#/components/responses/429Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+      security:
+        - PSUOAuth2Security:
+            - accounts
+  /accounts/{AccountId}/standing-orders:
+    get:
+      tags:
+        - Standing Orders
+      summary: Get Standing Orders
+      operationId: GetAccountsAccountIdStandingOrders
+      parameters:
+        - $ref: '#/components/parameters/AccountId'
+        - $ref: '#/components/parameters/x-fapi-auth-date'
+        - $ref: '#/components/parameters/x-fapi-customer-ip-address'
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/Authorization'
+        - $ref: '#/components/parameters/x-customer-user-agent'
+      responses:
+        '200':
+          $ref: '#/components/responses/200AccountsAccountIdStandingOrdersRead'
         '400':
           $ref: '#/components/responses/400Error'
         '401':
@@ -629,24 +734,6 @@ components:
         application/jose+jwe:
           schema:
             $ref: '#/components/schemas/OBReadBalance1'
-    200BalancesRead:
-      description: Balances Read
-      headers:
-        x-fapi-interaction-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/OBReadBalance1'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/OBReadBalance1'
-        application/jose+jwe:
-          schema:
-            $ref: '#/components/schemas/OBReadBalance1'
     200AccountsAccountIdOffersRead:
       description: Offers Read
       headers:
@@ -665,42 +752,6 @@ components:
         application/jose+jwe:
           schema:
             $ref: '#/components/schemas/OBReadOffer1'
-    200OffersRead:
-      description: Offers Read
-      headers:
-        x-fapi-interaction-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/OBReadOffer1'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/OBReadOffer1'
-        application/jose+jwe:
-          schema:
-            $ref: '#/components/schemas/OBReadOffer1'
-    200AccountsAccountIdPartiesRead:
-      description: Parties Read
-      headers:
-        x-fapi-interaction-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/OBReadParty3'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/OBReadParty3'
-        application/jose+jwe:
-          schema:
-            $ref: '#/components/schemas/OBReadParty3'
     200AccountsAccountIdPartyRead:
       description: Parties Read
       headers:
@@ -755,42 +806,6 @@ components:
         application/jose+jwe:
           schema:
             $ref: '#/components/schemas/OBReadStatement2'
-    200AccountsAccountIdStatementsStatementIdRead:
-      description: Statements Read
-      headers:
-        x-fapi-interaction-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/OBReadStatement2'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/OBReadStatement2'
-        application/jose+jwe:
-          schema:
-            $ref: '#/components/schemas/OBReadStatement2'
-    200StatementsRead:
-      description: Statements Read
-      headers:
-        x-fapi-interaction-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/OBReadStatement2'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/OBReadStatement2'
-        application/jose+jwe:
-          schema:
-            $ref: '#/components/schemas/OBReadStatement2'
     200AccountsAccountIdTransactionsRead:
       description: Transactions Read
       headers:
@@ -809,8 +824,8 @@ components:
         application/jose+jwe:
           schema:
             $ref: '#/components/schemas/OBReadTransaction6'
-    200TransactionsRead:
-      description: Transactions Read
+    200AccountsAccountIdDirectDebitsRead:
+      description: Direct Debits Read
       headers:
         x-fapi-interaction-id:
           description: An RFC4122 UID used as a correlation id.
@@ -820,13 +835,49 @@ components:
       content:
         application/json; charset=utf-8:
           schema:
-            $ref: '#/components/schemas/OBReadTransaction6'
+            $ref: '#/components/schemas/OBReadDirectDebit2'
         application/json:
           schema:
-            $ref: '#/components/schemas/OBReadTransaction6'
+            $ref: '#/components/schemas/OBReadDirectDebit2'
         application/jose+jwe:
           schema:
-            $ref: '#/components/schemas/OBReadTransaction6'
+            $ref: '#/components/schemas/OBReadDirectDebit2'
+    200AccountsAccountIdStandingOrdersRead:
+      description: Standing Orders Read
+      headers:
+        x-fapi-interaction-id:
+          description: An RFC4122 UID used as a correlation id.
+          required: true
+          schema:
+            type: string
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/OBReadStandingOrder6'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OBReadStandingOrder6'
+        application/jose+jwe:
+          schema:
+            $ref: '#/components/schemas/OBReadStandingOrder6'
+    200AccountsAccountIdBeneficiariesRead:
+      description: Beneficiaries Read
+      headers:
+        x-fapi-interaction-id:
+          description: An RFC4122 UID used as a correlation id.
+          required: true
+          schema:
+            type: string
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/OBReadBeneficiary5'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OBReadBeneficiary5'
+        application/jose+jwe:
+          schema:
+            $ref: '#/components/schemas/OBReadBeneficiary5'
     400Error:
       description: Bad request
       headers:
