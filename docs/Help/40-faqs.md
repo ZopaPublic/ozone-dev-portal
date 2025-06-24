@@ -13,22 +13,22 @@ Please find more information at [Open Banking](https://www.openbanking.org.uk/)
 #### Account & Transactions
 These read/write APIs provide the ability for approved/authorised account information service providers (AISPs) to access a customer’s (payment service user's) account and transaction information for domestic payment accounts (for Zopa this includes the Zopa Credit Card and Zopa bank account), only when the user grants consent. This API is developed according to the Open Banking Read/Write API Specifications, see: [https://www.openbanking.org.uk/](https://www.openbanking.org.uk/)
 
+### Payment Initiation
+
+These read/write APIs provide the ability for authorised payment initiation service providers (PISPs) to initiate domestic payments only when the PSU grants consent. This API is developed according to the Open Banking Read/Write API Specifications, see [https://www.openbanking.org.uk/](https://www.openbanking.org.uk/)
+
 
 ### What are the roles a TPP can perform?
 
 A TPP, Third Party Provider, can perform the following roles once they are registered with their National Competent Authority (NCA):
 
-Account Information Service Provider (AISP)
-
-Payment Initiation Service Provider (PISP)
-
-Technical Service Provider (TSP)
-
-Card Based Payment Instrument Issuer (CBPII)
+- Account Information Service Provider (AISP)
+- Payment Initiation Service Provider (PISP)
+- Technical Service Provider (TSP)
+- Card Based Payment Instrument Issuer (CBPII)
 
 
 ## Read/Write APIs
-
 
 ### How can I access Zopa's Read/Write APIs?
 As a TPP, in order to access our Read/Write APIs, you need to be enrolled with Open Banking and registered with the Financial Conduct Authority (FCA) as an AISP. This will then enable you to access our APIs.
