@@ -3,10 +3,16 @@
 ## Authorisation Server URLs
 - OIDC Well Known endpoint: `https://auth1.openbanking.zopa.com/.well-known/openid-configuration`
 - baseUrl: `https://auth1.openbanking.zopa.com/`
-- Authorisation URL (app only): `zopa://consent-access-request?client_id={{ the client ID }}&response_type=code&scope=openid%20accounts&request={{the JWT token}}`
+
+## Authorisation URL
+We currently only support redirect via a deeplink to the Zopa mobile app - this deeplink is different depending on the type of consents (AIS or PIS) and needs to be constructed as follows:
+
+- AIS Authorisation URL: `zopa://consent-access-request?client_id={{ the client ID }}&response_type=code&scope=openid%20accounts&request={{the JWT token}}`
+- PIS Authorisation URL: `zopauat://open-banking/pis-single-payment-consent?client_id={{ the client ID }}&response_type=code&scope=openid%20accounts&request={{the JWT token}}`
 
 ## Resource Server URLs
 - Account Information Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**
+- Payment Initiation Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/pisp/**
 
 
 ## Onboarding
@@ -30,7 +36,7 @@ As defined further in the Zopa Open Banking API Specification
 
 >For private_key_jwt - the `aud` claim is the url of the token endpoint as specified in OIDC client authentication.
 
-> The request object used in OIDC flows the aud claim is the issuer url from the Zopa ASPSP .wellknown endpoint: `https://auth1.openbanking.zopa.com/.well-known/openid-configuration`
+> The request object used in OIDC flows the aud claim is the issuer url from the Zopa ASPSP .wellknown endpoint: `https://auth1.openbanking.zopa.com/.well-known/openid-configuration` - though please see above for details of our authorisation URLs which require TPPs to construct deeplinks.
 
 > Note: Our Sandbox API also offers less strict profiles to assist with integration testing.
 
