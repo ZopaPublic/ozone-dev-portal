@@ -44,7 +44,7 @@ There are full specifications provided by OBL available on their [website](https
 
 ## Response Codes
 
-### I am getting a 401 unauthorized response when invoking /token endpoints
+### I am getting a 401 unauthorised response when invoking /token endpoints
 (1) Make sure you have your SSA is registered and the subscription of the Accounts Service Provider API and/or Payments Service Provider API is approved by Zopa. To do this please contact openbanking-support@zopa.com
 
 (2) Make sure you are following client_secret_post for the OIDC calls
