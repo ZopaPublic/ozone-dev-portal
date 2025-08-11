@@ -39,7 +39,7 @@ Claims required in Dynamic Client Registration are as follows (we support less s
 | application_type | web | 
 | iss | Software Statement Id | The issuer must be your software statement ID. This is important as it's used verify it matches the SSA software ID claim.
 | redirect_uris | | All redirect Uris should be added in the claims
-| token_endpoint_auth_method | client_secret_basic, private_key_jwt | Requested authentication method for the Token Endpoint - on Sandbox we support simpler authentication methods, for production-like behaviour use private_key_jwt
+| token_endpoint_auth_method | client_secret_basic, private_key_jwt | Requested authentication method for the Token Endpoint. **Note:** `client_secret_basic` is only supported in the Sandbox for ease of testing. For production, use `private_key_jwt`.
 | aud |  | The token endpoint
 | scopes | openid, accounts, payments | The scopes will depend on your role from the FCA (AISP and/or PISP)
 | request_object_signing_alg | none |
@@ -73,7 +73,7 @@ To register, you must construct a JWT with the following header and claims, then
     "application_type": "web",
     "iss": "<your-software-statement-id>",
     "redirect_uris": ["<your-redirect-uri>", "..."],
-    "token_endpoint_auth_method": "client_secret_basic",
+    "token_endpoint_auth_method": "client_secret_basic", // Only for Sandbox/testing. Use private_key_jwt for production.
     "aud": "https://auth1.openbanking-sandbox.zopa.com",
     "scope": "openid payments accounts",
     "request_object_signing_alg": "none",
@@ -150,7 +150,7 @@ def make_registration_jwt(
         application_type="web",
         iss=software_statement_id,
         redirect_uris=REDIRECT_URIs,
-        token_endpoint_auth_method="client_secret_basic", # Only supported in Sandbox, use private_key_jwt for production style behaviour
+    token_endpoint_auth_method="client_secret_basic", # Only supported in Sandbox/testing. Use private_key_jwt for production.
         aud="https://auth1.openbanking-sandbox.zopa.com",
         scope="openid payments accounts",  # accounts for AISP or payments for PISP or both
         request_object_signing_alg="none",
