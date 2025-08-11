@@ -3,6 +3,11 @@
 ## Base URL
 The base URL for all PIS APIs is: `https://rs1.openbanking.zopa.com/open-banking/v4.0/pisp/**`
 
+### Auth URL
+We currently only support redirect via a deeplink to the Zopa mobile app - this deeplink is different depending on the type of consents (AIS or PIS) and needs to be constructed as follows: 
+
+- PIS Authorisation URL: `zopa://open-banking/pis-single-payment-consent?client_id={{ the client ID }}&response_type=code&scope=openid%20payments&request={{the JWT token}}`
+
 ## Supported Payment Types
 The Zopa API currently only supports:
 - Domestic Payments
@@ -48,3 +53,19 @@ However, this field is not mandatory so we suggest PISP simply not include this 
 
 ### Scheme Name
 The only supported `Account.SchemeName` is `UK.OBIE.SortCodeAccountNumber` for both `DebtorAccount` and `CreditorAccount`. Any other enum provided will return error.
+
+## JWS Usage Guidance
+
+All payment initiation requests to Zopa must be protected using a detached JSON Web Signature (JWS) as per the Open Banking standard. This ensures the integrity and authenticity of the payment payload.
+
+**Key requirements:**
+- The JWS must be generated using the signing key registered with Zopa.
+- The required algorithm is `PS256` (RSASSA-PSS using SHA-256). Ensure your signing library supports this algorithm.
+- The `x-jws-signature` header must be included in all relevant API requests, containing the detached JWS for the request body.
+- The payload must not be altered after signing; any modification (including whitespace or key order) will result in signature validation failure.
+- Canonicalise the JSON payload before signing (remove extra spaces, ensure consistent key ordering if required by your library).
+- The JWS must be detached: do not include the payload in the JWS itself—sign the payload and send only the signature in the `x-jws-signature` header.
+- Set the `Content-Type` header to `application/json`.
+- Double-check that the payload sent in the request matches exactly what was signed.
+- If you receive a signature validation error, compare the raw payload you sent with what you signed—any difference will cause failure.
+- If the JWS is invalid or missing, the request will be rejected with an error.
