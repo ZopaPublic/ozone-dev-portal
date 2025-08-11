@@ -14,15 +14,13 @@ We currently only support redirect via a deeplink to the Zopa mobile app - this 
 - Account Information Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**
 - Payment Initiation Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/pisp/**
 
+## Dynamic Client Registration
 
-## Onboarding
-We do not currently support Dynamic Client Registration.
+Our API allows dynamic client registration in order to create a valid client that is able to use our Authorisation Server. We only trust Software Statement Assertions (SSAs) issued by the Open Banking Directory provided by Open Banking Limited. eIDAS certificates are supported via onboarding to the Open Banking Directory (as discussed in more detail below).
 
-Please contact our Open Banking support team to be onboarded.
+The url of the registration endpoint is advertised on our OIDC Discovery Endpoints using the registration_endpoint claim.
 
-Contact email: openbanking-support@zopa.com
-
-We will also retain your contact details so that you can be informed in the event of any outages or changes to our API specification, as well as to contact you regarding any technical issues. We recommend using a team email address over an individual contact.
+The `aud` claim used in the outer JWT of a Dynamic Client Registration request is the Open Banking Limited issued `org_id` (as documented in the Open Banking Limited DCR v3.1 standard).
 
 ## Production security profile
 
