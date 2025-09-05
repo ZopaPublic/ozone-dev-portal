@@ -8,7 +8,8 @@
 We currently only support redirect via a deeplink to the Zopa mobile app - this deeplink is different depending on the type of consents (AIS or PIS) and needs to be constructed as follows:
 
 - AIS Authorisation URL: `zopa://consent-access-request?client_id={{ the client ID }}&response_type=code&scope=openid%20accounts&request={{the JWT token}}`
-- PIS Authorisation URL: `zopa://open-banking/pis-single-payment-consent?client_id={{ the client ID }}&response_type=code&scope=openid%20payments&request={{the JWT token}}`
+- PIS Domestic Single Immediate Payment Authorisation URL: `zopa://open-banking/pis-single-payment-consent?client_id={{ the client ID }}&response_type=code&scope=openid%20payments&request={{the JWT token}}`
+- PIS Domestic Standing Orders Authorisation URL: `zopa://open-banking/pis-standing-order-consent?client_id={{ the client ID }}&response_type=code&scope=openid%20payments&request={{the JWT token}}`
 
 ## Resource Server URLs
 - Account Information Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**
