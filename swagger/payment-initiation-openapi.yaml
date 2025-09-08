@@ -211,6 +211,183 @@ paths:
       security:
         - TPPOAuth2Security:
             - payments
+  /domestic-standing-order-consents:
+    post:
+      tags:
+        - Domestic Standing Orders
+      summary: Create Domestic Standing Order Consents
+      operationId: CreateDomesticStandingOrderConsents
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-auth-date'
+        - $ref: '#/components/parameters/x-fapi-customer-ip-address'
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/Authorization'
+        - $ref: '#/components/parameters/x-idempotency-key'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: '#/components/parameters/x-customer-user-agent'
+      requestBody:
+        content:
+          application/json; charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/OBWriteDomesticStandingOrderConsent5'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OBWriteDomesticStandingOrderConsent5'
+          application/jose+jwe:
+            schema:
+              $ref: '#/components/schemas/OBWriteDomesticStandingOrderConsent5'
+        description: Default
+        required: true
+      responses:
+        '201':
+          $ref: '#/components/responses/201DomesticStandingOrderConsentsCreated'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '401':
+          $ref: '#/components/responses/401Error'
+        '403':
+          $ref: '#/components/responses/403Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '405':
+          $ref: '#/components/responses/405Error'
+        '406':
+          $ref: '#/components/responses/406Error'
+        '409':
+          $ref: '#/components/responses/409Error'
+        '415':
+          $ref: '#/components/responses/415Error'
+        '429':
+          $ref: '#/components/responses/429Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+      security:
+        - TPPOAuth2Security:
+            - payments
+  /domestic-standing-order-consents/{ConsentId}:
+    get:
+      tags:
+        - Domestic Standing Orders
+      summary: Get Domestic Standing Order Consents
+      operationId: GetDomesticStandingOrderConsentsConsentId
+      parameters:
+        - $ref: '#/components/parameters/ConsentId'
+        - $ref: '#/components/parameters/x-fapi-auth-date'
+        - $ref: '#/components/parameters/x-fapi-customer-ip-address'
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/Authorization'
+        - $ref: '#/components/parameters/x-customer-user-agent'
+      responses:
+        '200':
+          $ref: '#/components/responses/200DomesticStandingOrderConsentsConsentIdRead'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '401':
+          $ref: '#/components/responses/401Error'
+        '403':
+          $ref: '#/components/responses/403Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '405':
+          $ref: '#/components/responses/405Error'
+        '406':
+          $ref: '#/components/responses/406Error'
+        '429':
+          $ref: '#/components/responses/429Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+      security:
+        - TPPOAuth2Security:
+            - payments
+  /domestic-standing-orders:
+    post:
+      tags:
+        - Domestic Standing Orders
+      summary: Create Domestic Standing Orders
+      operationId: CreateDomesticStandingOrders
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-auth-date'
+        - $ref: '#/components/parameters/x-fapi-customer-ip-address'
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/Authorization'
+        - $ref: '#/components/parameters/x-idempotency-key'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: '#/components/parameters/x-customer-user-agent'
+      requestBody:
+        content:
+          application/json; charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/OBWriteDomesticStandingOrder3'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OBWriteDomesticStandingOrder3'
+          application/jose+jwe:
+            schema:
+              $ref: '#/components/schemas/OBWriteDomesticStandingOrder3'
+        description: Default
+        required: true
+      responses:
+        '201':
+          $ref: '#/components/responses/201DomesticStandingOrdersCreated'
+        '400':
+          $ref: '#/components/responses/400Error'
+        '401':
+          $ref: '#/components/responses/401Error'
+        '403':
+          $ref: '#/components/responses/403Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '405':
+          $ref: '#/components/responses/405Error'
+        '406':
+          $ref: '#/components/responses/406Error'
+        '409':
+          $ref: '#/components/responses/409Error'
+        '415':
+          $ref: '#/components/responses/415Error'
+        '429':
+          $ref: '#/components/responses/429Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+      security:
+        - PSUOAuth2Security:
+            - payments
+  /domestic-standing-orders/{DomesticStandingOrderId}:
+    get:
+      tags:
+        - Domestic Standing Orders
+      summary: Get Domestic Standing Orders
+      operationId: GetDomesticStandingOrdersDomesticStandingOrderId
+      parameters:
+        - $ref: '#/components/parameters/DomesticStandingOrderId'
+        - $ref: '#/components/parameters/x-fapi-auth-date'
+        - $ref: '#/components/parameters/x-fapi-customer-ip-address'
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/Authorization'
+        - $ref: '#/components/parameters/x-customer-user-agent'
+      responses:
+        '200':
+          $ref: >-
+            #/components/responses/200DomesticStandingOrdersDomesticStandingOrderIdRead
+        '400':
+          $ref: '#/components/responses/400Error'
+        '401':
+          $ref: '#/components/responses/401Error'
+        '403':
+          $ref: '#/components/responses/403Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '405':
+          $ref: '#/components/responses/405Error'
+        '406':
+          $ref: '#/components/responses/406Error'
+        '429':
+          $ref: '#/components/responses/429Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+      security:
+        - TPPOAuth2Security:
+            - payments
 servers:
   - url: /open-banking/v4.0/pisp
 components:

@@ -11,19 +11,22 @@ We currently only support redirect via a deeplink to the Zopa mobile app - this 
 ## Supported Payment Types
 The Zopa API currently only supports:
 - Domestic Payments
+- Domestic Standing Orders
+
+These endpoints are only supported for users who have a Zopa Bank Account (Current Account).
 
 The Zopa API __does not__ currently support:
-- Domestic Scheduled Payments
-- Domestic Standing Orders
+- Domestic Scheduled Payments (however you can use the Domestic Standing Orders API with the frequency set to `ADHO` to achieve a simlar goal)
 - International payments
 - File & Bulk payments
 - `payment-details` end-points
 
 The swagger for our PIS API can be found [here](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/payment-initiation-openapi.yaml)
 
-## Supported Parameters
-The following apply to all domestic payment consents:
 
+# Supported Parameters
+
+## Domestic Payments
 ### Amount Limits
 The payment amount is set using the `InstructedAmount/Amount` field.
 
@@ -53,6 +56,39 @@ However, this field is not mandatory so we suggest PISP simply not include this 
 
 ### Scheme Name
 The only supported `Account.SchemeName` is `UK.OBIE.SortCodeAccountNumber` for both `DebtorAccount` and `CreditorAccount`. Any other enum provided will return error.
+
+## Standing Orders
+### Currency
+- `InstructedAmount/Currency` must be `GBP`
+
+### Payment References
+The payment reference is specified using `RemittanceInformation/Structured/CreditorReferenceInformation/Reference`. This field is **mandatory**.
+
+The reference **must** also:
+- Be 18 characters or less
+- Match the regex: `^[a-zA-Z0-9\\/\\-?:().,’+\\s#=!\"%&*<>;{@\\r\\n]*\$`
+- Not contain a PAN (a 16 digit number passing a LUHN check)
+
+Payment requests with references which do not conform to the above will be rejected. The PISP may also opt to populate reference field on behalf of the PSU.
+
+### Scheme Name
+The only supported `Account.SchemeName` is `UK.OBIE.SortCodeAccountNumber` for both `DebtorAccount` and `CreditorAccount`. Any other enum provided will return error.
+
+### First and Final Payment Amounts
+We only support Standing Orders with a *single fixed amount*. Consents where the amounts in `FirstPaymentAmount`, `FinalPaymentAmount` and `RecurringPaymentAmount` differ will be rejected.
+
+### Frequency
+We only support Standing Orders with the following Frequencies:
+- `ADHO` (Adhoc)
+- `DAIL` (Daily)
+- `WEEK` (Weekly)
+- `FRTN` (Fortnightly)
+- `MNTH` (Monthly)
+- `YEAR` (Yearly)
+Attempts to initiate a mandate with a different frequency will fail.
+
+### Execution Notes
+If a monthly mandate is scheduled to occur on e.g. 31st of each month, in months where this day does not occur, the payment will be made the preceding day (i.e. the 30th). If a Standing Order is scheduled with a date that does not exist (e.g. 30th February) the request will error.
 
 ## JWS Usage Guidance
 
