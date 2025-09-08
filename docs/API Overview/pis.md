@@ -88,7 +88,7 @@ We only support Standing Orders with the following Frequencies:
 Attempts to initiate a mandate with a different frequency will fail.
 
 ### Execution Notes
-If a monthly mandate is scheduled to occur on e.g. 31st of each month, in months where this day does not occur, the payment will be made the preceding day (i.e. the 30th).
+If a monthly mandate is scheduled to occur on e.g. 31st of each month, in months where this day does not occur, the payment will be made the preceding day (i.e. the 30th). If a Standing Order is scheduled with a date that does not exist (e.g. 30th February) the request will error.
 
 ## JWS Usage Guidance
 
