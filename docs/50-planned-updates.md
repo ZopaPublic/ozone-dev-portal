@@ -7,7 +7,7 @@
 ## Known Issues and Resolutions
 | Issue Identified | Summary                                                                                                                                      | Endpoints                                 | Start Date | Resolution Date |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------|------------|-----------------|
-| 17/09/2025       | We became aware of an issue affecting our AIS API. Specifically, credit card transaction data has been truncated to only return the most recent 200 transactions. | GET /accounts/{AccountId}/transactions    | 04/12/2024 |                 |
+| 17/09/2025       | We became aware of an issue affecting our AIS API. Specifically, credit card transaction data has been truncated to only return the most recent 200 transactions. | GET /accounts/{AccountId}/transactions    | 04/12/2024 | 18/09/2025    |
 
 ## Change Logs
 
