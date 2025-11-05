@@ -7,6 +7,7 @@
 ## Known Issues and Resolutions
 | Issue Identified | Summary                                                                                                                                      | Endpoints                                 | Start Date | Resolution Date |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------|------------|-----------------|
+| 05/11/2025       | We experienced an unplanned outage causing a high number of 500 errors across our AIS and PIS APIs | All AIS and PIS Endpoints    | 05/11/2025 01:00|               |
 | 17/09/2025       | We became aware of an issue affecting our AIS API. Specifically, credit card transaction data has been truncated to only return the most recent 200 transactions. | GET /accounts/{AccountId}/transactions    | 04/12/2024 | 18/09/2025    |
 
 ## Change Logs
