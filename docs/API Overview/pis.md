@@ -32,9 +32,9 @@ The payment amount is set using the `InstructedAmount/Amount` field.
 
 Payments have the following limits which are aligned with the limits applied in the Zopa app:
 - Payments to Zopa Smart Saver or to a Verified Self Owned Account (aka Nominated Bank Account) - £250,000 daily limit
-- Payments to any other account - £10,000 daily limit, £20,000 weekly limit
+- Payments to any other account - £10,000 daily limit, £30,000 weekly limit
 
-Zopa suggest PISPs notify the PSU that the same limits apply as in their Zopa app. It is possible from time to time that `domestic-payment-consents` is authorised, but the payment initiation fails due to account limits.
+These limits apply across all outbound transactions (not just payments initiated via PIS). Zopa suggest PISPs notify the PSU that the same limits apply as in their Zopa app. It is possible from time to time that `domestic-payment-consents` is authorised, but the payment initiation fails due to account limits.
 
 ### Currency
 - `InstructedAmount/Currency` must be `GBP`
