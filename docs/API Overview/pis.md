@@ -21,7 +21,7 @@ The Zopa API __does not__ currently support:
 - File & Bulk payments
 - `payment-details` end-points
 
-The swagger for our PIS API can be found [here](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/payment-initiation-openapi.yaml)
+The swagger for our PIS API can be found [here](/perry/developer/documentation?resource=euhub-zopa-portal&document=swagger/payment-initiation-openapi.yaml)
 
 
 # Supported Parameters

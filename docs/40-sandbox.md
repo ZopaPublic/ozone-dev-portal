@@ -198,7 +198,7 @@ You should now have successfully onboarded your TPP with the ASPSP and received 
 #### Step 3: Import Environment Files and Collections To Postman
 3.1) Import Environment Files and Collections into Postman
 
-You can find the Postman collection under [resources](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/Help/30-resources.md).
+You can find the Postman collection under [resources](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/Help/30-resources.md).
 
 To obtain an environment file, call the following endpoint (replace `{client_id}` with your actual client ID):
 

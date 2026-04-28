@@ -12,13 +12,13 @@ We are a registered Account Servicing Payment Service Provider (ASPSP) who provi
 
 ## Contents
 
-- [Introduction](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/10-index.md)
-- [Production Environment](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/30-production.md)
-- [Sandbox Environment](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/40-sandbox.md)
-- [Planned Updates and Outages](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/50-planned-updates.md)
-- [AIS API Overview](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/API%20Overview/ais.md)
-- [PIS API Overview](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/API%20Overview/pis.md)
-- [Account and Transaction API Specification](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/account-info-openapi.yaml)
-- [Payment Initiation API Specification](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/payment-initiation-openapi.yaml)
-- [Modified Customer Interface](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/70-modified-customer-interface.md)
-- [Quarterly Availability and Performance Data](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=docs/80-performance-metrics.md)
+- [Introduction](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/10-index.md)
+- [Production Environment](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/30-production.md)
+- [Sandbox Environment](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/40-sandbox.md)
+- [Planned Updates and Outages](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/50-planned-updates.md)
+- [AIS API Overview](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/API%20Overview/ais.md)
+- [PIS API Overview](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/API%20Overview/pis.md)
+- [Account and Transaction API Specification](/perry/developer/documentation?resource=euhub-zopa-portal&document=swagger/account-info-openapi.yaml)
+- [Payment Initiation API Specification](/perry/developer/documentation?resource=euhub-zopa-portal&document=swagger/payment-initiation-openapi.yaml)
+- [Modified Customer Interface](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/70-modified-customer-interface.md)
+- [Quarterly Availability and Performance Data](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/80-performance-metrics.md)
