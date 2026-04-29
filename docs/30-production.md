@@ -90,6 +90,8 @@ The scope must include `openid` in both the deeplink URL and the JWT payload —
 - Account Information Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**
 - Payment Initiation Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/pisp/**
 
+> **Note for PISPs:** All payment initiation requests must include a detached JWS signature in the `x-jws-signature` header. This is not required for AIS requests. See the [PIS API Overview](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/API%20Overview/pis.md) for full details.
+
 ## Dynamic Client Registration
 
 Our API allows dynamic client registration in order to create a valid client that is able to use our Authorisation Server. We only trust Software Statement Assertions (SSAs) issued by the Open Banking Directory provided by Open Banking Limited. eIDAS certificates are supported via onboarding to the Open Banking Directory (as discussed in more detail below).

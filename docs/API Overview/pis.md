@@ -11,6 +11,22 @@ We currently only support redirect via a deeplink to the Zopa mobile app for PIS
 
 See the [Production Environment](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/30-production.md) page for full details on how to construct the `request` JWT, including required claims and common mistakes.
 
+## JWS Usage Guidance
+
+All payment initiation requests to Zopa must be protected using a detached JSON Web Signature (JWS) as per the Open Banking standard. This ensures the integrity and authenticity of the payment payload.
+
+**Key requirements:**
+- The JWS must be generated using the signing key registered with Zopa.
+- The required algorithm is `PS256` (RSASSA-PSS using SHA-256). Ensure your signing library supports this algorithm.
+- The `x-jws-signature` header must be included in all relevant API requests, containing the detached JWS for the request body.
+- The payload must not be altered after signing; any modification (including whitespace or key order) will result in signature validation failure.
+- Canonicalise the JSON payload before signing (remove extra spaces, ensure consistent key ordering if required by your library).
+- The JWS must be detached: do not include the payload in the JWS itself—sign the payload and send only the signature in the `x-jws-signature` header.
+- Set the `Content-Type` header to `application/json`.
+- Double-check that the payload sent in the request matches exactly what was signed.
+- If you receive a signature validation error, compare the raw payload you sent with what you signed—any difference will cause failure.
+- If the JWS is invalid or missing, the request will be rejected with an error.
+
 ## Supported Payment Types
 The Zopa API currently only supports:
 - Domestic Payments
@@ -92,19 +108,3 @@ Attempts to initiate a mandate with a different frequency will fail.
 
 ### Execution Notes
 If a monthly mandate is scheduled to occur on e.g. 31st of each month, in months where this day does not occur, the payment will be made the preceding day (i.e. the 30th). If a Standing Order is scheduled with a date that does not exist (e.g. 30th February) the request will error.
-
-## JWS Usage Guidance
-
-All payment initiation requests to Zopa must be protected using a detached JSON Web Signature (JWS) as per the Open Banking standard. This ensures the integrity and authenticity of the payment payload.
-
-**Key requirements:**
-- The JWS must be generated using the signing key registered with Zopa.
-- The required algorithm is `PS256` (RSASSA-PSS using SHA-256). Ensure your signing library supports this algorithm.
-- The `x-jws-signature` header must be included in all relevant API requests, containing the detached JWS for the request body.
-- The payload must not be altered after signing; any modification (including whitespace or key order) will result in signature validation failure.
-- Canonicalise the JSON payload before signing (remove extra spaces, ensure consistent key ordering if required by your library).
-- The JWS must be detached: do not include the payload in the JWS itself—sign the payload and send only the signature in the `x-jws-signature` header.
-- Set the `Content-Type` header to `application/json`.
-- Double-check that the payload sent in the request matches exactly what was signed.
-- If you receive a signature validation error, compare the raw payload you sent with what you signed—any difference will cause failure.
-- If the JWS is invalid or missing, the request will be rejected with an error.
