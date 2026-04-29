@@ -5,11 +5,58 @@
 - baseUrl: `https://auth1.openbanking.zopa.com/`
 
 ## Authorisation URL
-We currently only support redirect via a deeplink to the Zopa mobile app - this deeplink is different depending on the type of consents (AIS or PIS) and needs to be constructed as follows:
 
-- AIS Authorisation URL: `zopa://consent-access-request?client_id={{ the client ID }}&response_type=code&scope=openid%20accounts&request={{the JWT token}}`
-- PIS Domestic Single Immediate Payment Authorisation URL: `zopa://open-banking/pis-single-payment-consent?client_id={{ the client ID }}&response_type=code&scope=openid%20payments&request={{the JWT token}}`
-- PIS Domestic Standing Orders Authorisation URL: `zopa://open-banking/pis-standing-order-consent?client_id={{ the client ID }}&response_type=code&scope=openid%20payments&request={{the JWT token}}`
+We currently only support redirect via a deeplink to the Zopa mobile app. Unlike standard OIDC redirects used by other ASPSPs, you must construct this deeplink yourself — **do not use the `/o3/v1.0/auth-code-url` helper endpoint, which is for sandbox testing only and does not support PS256**.
+
+The deeplink format differs by consent type:
+
+- **AIS:** `zopa://consent-access-request?client_id=<client_id>&response_type=code&scope=openid%20accounts&request=<signed_JWT>`
+- **PIS Single Payment:** `zopa://open-banking/pis-single-payment-consent?client_id=<client_id>&response_type=code&scope=openid%20payments&request=<signed_JWT>`
+- **PIS Standing Order:** `zopa://open-banking/pis-standing-order-consent?client_id=<client_id>&response_type=code&scope=openid%20payments&request=<signed_JWT>`
+
+### Request Object JWT
+
+The `request` parameter must be a **PS256-signed JWT** constructed using your registered private signing key. Note that the scope in both the deeplink URL and the JWT payload must include `openid` (e.g. `openid payments`, not just `payments`).
+
+**JWT Header:**
+```json
+{
+  "alg": "PS256",
+  "kid": "<your-signing-key-kid>",
+  "typ": "JWT"
+}
+```
+
+**JWT Payload (PIS example):**
+```json
+{
+  "iss": "<your_client_id>",
+  "aud": "https://auth1.openbanking.zopa.com",
+  "response_type": "code",
+  "client_id": "<your_client_id>",
+  "redirect_uri": "<your_registered_redirect_uri>",
+  "scope": "openid payments",
+  "state": "<unique_state>",
+  "nonce": "<unique_nonce>",
+  "nbf": <unix_timestamp_now>,
+  "exp": <unix_timestamp_now + 500>,
+  "claims": {
+    "id_token": {
+      "openbanking_intent_id": {
+        "value": "<your_intent_id>",
+        "essential": true
+      }
+    }
+  }
+}
+```
+
+For AIS, replace `"scope": "openid payments"` with `"scope": "openid accounts"` and update `openbanking_intent_id` to your AIS consent ID.
+
+> **Common mistakes:**
+> - Using `scope: "payments"` instead of `scope: "openid payments"` — the `openid` scope is required
+> - Using `aud: "https://as1.openbanking.zopa.com"` — the correct value is `https://auth1.openbanking.zopa.com`
+> - Including a `userinfo` claims block or `acr` — these are not required
 
 ## Resource Server URLs
 - Account Information Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**

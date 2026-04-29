@@ -4,9 +4,12 @@
 The base URL for all PIS APIs is: `https://rs1.openbanking.zopa.com/open-banking/v4.0/pisp/**`
 
 ### Auth URL
-We currently only support redirect via a deeplink to the Zopa mobile app - this deeplink is different depending on the type of consents (AIS or PIS) and needs to be constructed as follows: 
+We currently only support redirect via a deeplink to the Zopa mobile app. The deeplink differs by payment type:
 
-- PIS Authorisation URL: `zopa://open-banking/pis-single-payment-consent?client_id={{ the client ID }}&response_type=code&scope=openid%20payments&request={{the JWT token}}`
+- **Single Payment:** `zopa://open-banking/pis-single-payment-consent?client_id=<client_id>&response_type=code&scope=openid%20payments&request=<signed_JWT>`
+- **Standing Order:** `zopa://open-banking/pis-standing-order-consent?client_id=<client_id>&response_type=code&scope=openid%20payments&request=<signed_JWT>`
+
+See the [Production Environment](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/30-production.md) page for full details on how to construct the `request` JWT, including required claims and common mistakes.
 
 ## Supported Payment Types
 The Zopa API currently only supports:
