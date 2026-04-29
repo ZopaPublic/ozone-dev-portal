@@ -36,7 +36,7 @@ As a TPP, in order to access our Read/Write APIs, you need to be enrolled with O
 ### As a Third Party Provider, is there somewhere I can test prototype Open Banking Solutions?
  Yes, Zopa has a test facility [Sandbox](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/40-sandbox.md) available through our Developer Portal.
 
-Check out our [Production Environment](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/30-production.md) guide for a step by step guide on how to start testing with our Sandbox APIs.
+Check out our [Sandbox](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/40-sandbox.md) page for a step by step guide on how to get started with testing.
 
 
 ### Where are the specifications you have used to build your current APIs?
