@@ -6,9 +6,11 @@ Please note, only the **Zopa Credit Card** and **Zopa bank account** (Current Ac
 The base URL for all AIS APIs is: `https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**`
 
 ### Auth URL
-We currently only support redirect via a deeplink to the Zopa mobile app - this deeplink is different depending on the type of consents (AIS or PIS) and needs to be constructed as follows: 
+We currently only support redirect via a deeplink to the Zopa mobile app:
 
-- AIS Authorisation URL: `zopa://consent-access-request?client_id={{ the client ID }}&response_type=code&scope=openid%20accounts&request={{the JWT token}}`
+- **AIS:** `zopa://consent-access-request?client_id=<client_id>&response_type=code&scope=openid%20accounts&request=<signed_JWT>`
+
+See the [Production Environment](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/30-production.md) page for full details on how to construct the `request` JWT, including required claims and common mistakes.
 
 ### Usage
 According to [Article 36 of the UK-RTS](https://www.handbook.fca.org.uk/techstandards/PS/2021/2021_01/chapter-v/section-2/040.html), TPPs are entitled to access information via AIS whenever the payment service user is actively requesting this data; otherwise, this should be no more than four times in a 24-hour period.
