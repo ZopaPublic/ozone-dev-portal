@@ -6,7 +6,7 @@
 
 ## Authorisation URL
 
-We currently only support redirect via a deeplink to the Zopa mobile app. Unlike standard OIDC redirects used by other ASPSPs, you must construct this deeplink yourself.
+We currently only support redirect via a deeplink to the Zopa mobile app. Unlike most ASPSPs which use a standard HTTPS authorisation endpoint, our authorisation URLs use a custom `zopa://` deeplink scheme to redirect the PSU into the Zopa mobile app.
 
 > **Note:** The `/o3/v1.0/auth-code-url` endpoint is a convenience helper available on sandbox only to assist with testing. It builds the request object server-side using `alg=none` and **must not be used in production** — it does not support PS256 and will return a 500 error if attempted.
 
