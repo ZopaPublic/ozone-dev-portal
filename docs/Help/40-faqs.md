@@ -34,9 +34,9 @@ A TPP, Third Party Provider, can perform the following roles once they are regis
 As a TPP, in order to access our Read/Write APIs, you need to be enrolled with Open Banking and registered with the Financial Conduct Authority (FCA) as an AISP. This will then enable you to access our APIs.
 
 ### As a Third Party Provider, is there somewhere I can test prototype Open Banking Solutions?
- Yes, Zopa has a test facility [Sandbox](../40-sandbox.md) available through our Developer Portal.
+ Yes, Zopa has a test facility [Sandbox](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/40-sandbox.md) available through our Developer Portal.
 
-Check out our [Production Environment](../30-production.md) guide for a step by step guide on how to start testing with our Sandbox APIs.
+Check out our [Production Environment](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/30-production.md) guide for a step by step guide on how to start testing with our Sandbox APIs.
 
 
 ### Where are the specifications you have used to build your current APIs?
