@@ -273,3 +273,13 @@ Retrieve Account Data
 ![](/assets/images/accounts.jpeg)
 
 ![](/assets/images/transactions.jpeg)
+
+#### Step 6: Payment Initiation Flow
+
+The PIS flow follows the same structure as AIS above. The key differences are:
+
+- When registering (Step 2), include `payments` in the `scope` claim (e.g. `openid payments accounts` for a combined client)
+- Create a payment consent via `POST https://rs1.openbanking-sandbox.zopa.com/open-banking/v4.0/pisp/domestic-payment-consents` instead of an account access consent. All PIS requests must include a valid `x-jws-signature` header — see the [PIS API Overview](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/API%20Overview/pis.md) for full JWS requirements.
+- Use the sandbox convenience endpoint to generate the PSU authorisation URL: `GET https://rs1.openbanking-sandbox.zopa.com/o3/v1.0/auth-code-url/{consent-id}?scope=payments&alg=none`. Note this endpoint is **sandbox only** — see the [Production Environment](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/30-production.md) page for how to construct the authorisation deeplink in production.
+- Complete the PSU consent flow using the sandbox user accounts from Step 4.3, then exchange the auth code for an access token as in Step 4.4.
+- Submit the payment via `POST https://rs1.openbanking-sandbox.zopa.com/open-banking/v4.0/pisp/domestic-payments` using the access token.

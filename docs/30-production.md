@@ -5,15 +5,92 @@
 - baseUrl: `https://auth1.openbanking.zopa.com/`
 
 ## Authorisation URL
-We currently only support redirect via a deeplink to the Zopa mobile app - this deeplink is different depending on the type of consents (AIS or PIS) and needs to be constructed as follows:
 
-- AIS Authorisation URL: `zopa://consent-access-request?client_id={{ the client ID }}&response_type=code&scope=openid%20accounts&request={{the JWT token}}`
-- PIS Domestic Single Immediate Payment Authorisation URL: `zopa://open-banking/pis-single-payment-consent?client_id={{ the client ID }}&response_type=code&scope=openid%20payments&request={{the JWT token}}`
-- PIS Domestic Standing Orders Authorisation URL: `zopa://open-banking/pis-standing-order-consent?client_id={{ the client ID }}&response_type=code&scope=openid%20payments&request={{the JWT token}}`
+We currently only support redirect via a deeplink to the Zopa mobile app. Unlike most ASPSPs which use a standard HTTPS authorisation endpoint, our authorisation URLs use a custom `zopa://` deeplink scheme to redirect the PSU into the Zopa mobile app.
+
+> **Note:** The `/o3/v1.0/auth-code-url` endpoint is a convenience helper available on sandbox only to assist with testing. It builds the request object server-side using `alg=none` and **must not be used in production** — it does not support PS256 and will return a 500 error if attempted.
+
+The deeplink format differs by consent type:
+
+- **AIS:** `zopa://consent-access-request?client_id=<client_id>&response_type=code&scope=openid%20accounts&request=<signed_JWT>`
+- **PIS Single Payment:** `zopa://open-banking/pis-single-payment-consent?client_id=<client_id>&response_type=code&scope=openid%20payments&request=<signed_JWT>`
+- **PIS Standing Order:** `zopa://open-banking/pis-standing-order-consent?client_id=<client_id>&response_type=code&scope=openid%20payments&request=<signed_JWT>`
+
+### Request Object JWT
+
+The `request` parameter must be a **PS256-signed JWT** constructed using your registered private signing key.
+
+The scope must include `openid` in both the deeplink URL and the JWT payload — the value depends on the consent type:
+- AIS: `openid accounts`
+- PIS: `openid payments`
+
+**JWT Header:**
+```json
+{
+  "alg": "PS256",
+  "kid": "<your-signing-key-kid>",
+  "typ": "JWT"
+}
+```
+
+**JWT Payload — AIS example:**
+```json
+{
+  "iss": "<your_client_id>",
+  "aud": "https://auth1.openbanking.zopa.com",
+  "response_type": "code",
+  "client_id": "<your_client_id>",
+  "redirect_uri": "<your_registered_redirect_uri>",
+  "scope": "openid accounts",
+  "state": "<unique_state>",
+  "nonce": "<unique_nonce>",
+  "nbf": <unix_timestamp_now>,
+  "exp": <unix_timestamp_now + 500>,
+  "claims": {
+    "id_token": {
+      "openbanking_intent_id": {
+        "value": "<your_ais_consent_id>",
+        "essential": true
+      }
+    }
+  }
+}
+```
+
+**JWT Payload — PIS example:**
+```json
+{
+  "iss": "<your_client_id>",
+  "aud": "https://auth1.openbanking.zopa.com",
+  "response_type": "code",
+  "client_id": "<your_client_id>",
+  "redirect_uri": "<your_registered_redirect_uri>",
+  "scope": "openid payments",
+  "state": "<unique_state>",
+  "nonce": "<unique_nonce>",
+  "nbf": <unix_timestamp_now>,
+  "exp": <unix_timestamp_now + 500>,
+  "claims": {
+    "id_token": {
+      "openbanking_intent_id": {
+        "value": "<your_payment_consent_id>",
+        "essential": true
+      }
+    }
+  }
+}
+```
+
+> **Common mistakes:**
+> - Using `scope: "payments"` or `scope: "accounts"` — `openid` must always be included
+> - Using `aud: "https://as1.openbanking.zopa.com"` — the correct value is `https://auth1.openbanking.zopa.com`
+> - Including a `userinfo` claims block or `acr` — these are not required
 
 ## Resource Server URLs
 - Account Information Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/aisp/**
 - Payment Initiation Services API: https://rs1.openbanking.zopa.com/open-banking/v4.0/pisp/**
+
+> **Note for PISPs:** All payment initiation requests must include a detached JWS signature in the `x-jws-signature` header. This is not required for AIS requests. See the [PIS API Overview](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/API%20Overview/pis.md) for full details.
 
 ## Dynamic Client Registration
 
