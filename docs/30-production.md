@@ -10,6 +10,8 @@ The supported parameters differ between environments. Always check the OIDC disc
 - Production: `https://auth1.openbanking.zopa.com/.well-known/openid-configuration`
 - Sandbox: `https://auth1.openbanking-sandbox.zopa.com/.well-known/openid-configuration`
 
+The one exception is the authorisation endpoint itself — rather than a single HTTPS endpoint, we use separate `zopa://` deeplinks per consent type as described below. This is not derivable from the discovery document.
+
 We currently only support redirect via a deeplink to the Zopa mobile app. Unlike most ASPSPs which use a standard HTTPS authorisation endpoint, our authorisation URLs use a custom `zopa://` deeplink scheme to redirect the PSU into the Zopa mobile app.
 
 > **Note:** The `/o3/v1.0/auth-code-url` endpoint is a convenience helper available on sandbox only to assist with testing. It builds the request object server-side using `alg=none` and **must not be used in production** — it does not support PS256 and will return a 500 error if attempted.
