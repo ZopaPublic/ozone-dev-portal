@@ -12,9 +12,9 @@ We currently only support redirect via a deeplink to the Zopa mobile app. Unlike
 
 The deeplink format differs by consent type:
 
-- **AIS:** `zopa://consent-access-request?client_id=<client_id>&response_type=code&scope=openid%20accounts&request=<signed_JWT>`
-- **PIS Single Payment:** `zopa://open-banking/pis-single-payment-consent?client_id=<client_id>&response_type=code&scope=openid%20payments&request=<signed_JWT>`
-- **PIS Standing Order:** `zopa://open-banking/pis-standing-order-consent?client_id=<client_id>&response_type=code&scope=openid%20payments&request=<signed_JWT>`
+- **AIS:** `zopa://consent-access-request?client_id=<client_id>&response_type=code%20id_token&scope=openid%20accounts&request=<signed_JWT>`
+- **PIS Single Payment:** `zopa://open-banking/pis-single-payment-consent?client_id=<client_id>&response_type=code%20id_token&scope=openid%20payments&request=<signed_JWT>`
+- **PIS Standing Order:** `zopa://open-banking/pis-standing-order-consent?client_id=<client_id>&response_type=code%20id_token&scope=openid%20payments&request=<signed_JWT>`
 
 ### Request Object JWT
 
@@ -23,6 +23,12 @@ The `request` parameter must be a **PS256-signed JWT** constructed using your re
 The scope must include `openid` in both the deeplink URL and the JWT payload — the value depends on the consent type:
 - AIS: `openid accounts`
 - PIS: `openid payments`
+
+The supported `response_type` values differ between environments. Always check the `response_types_supported` field in the OIDC discovery document for the environment you are targeting:
+- Production: `https://auth1.openbanking.zopa.com/.well-known/openid-configuration`
+- Sandbox: `https://auth1.openbanking-sandbox.zopa.com/.well-known/openid-configuration`
+
+Note that sandbox accepts `code` as well as `code id_token`, but production only supports `code id_token`. Using `code` alone in production will result in a `response_type_not_registered` error.
 
 **JWT Header:**
 ```json
@@ -38,7 +44,7 @@ The scope must include `openid` in both the deeplink URL and the JWT payload —
 {
   "iss": "<your_client_id>",
   "aud": "https://auth1.openbanking.zopa.com",
-  "response_type": "code",
+  "response_type": "code id_token",
   "client_id": "<your_client_id>",
   "redirect_uri": "<your_registered_redirect_uri>",
   "scope": "openid accounts",
@@ -62,7 +68,7 @@ The scope must include `openid` in both the deeplink URL and the JWT payload —
 {
   "iss": "<your_client_id>",
   "aud": "https://auth1.openbanking.zopa.com",
-  "response_type": "code",
+  "response_type": "code id_token",
   "client_id": "<your_client_id>",
   "redirect_uri": "<your_registered_redirect_uri>",
   "scope": "openid payments",
@@ -84,6 +90,7 @@ The scope must include `openid` in both the deeplink URL and the JWT payload —
 > **Common mistakes:**
 > - Using `scope: "payments"` or `scope: "accounts"` — `openid` must always be included
 > - Using `aud: "https://as1.openbanking.zopa.com"` — the correct value is `https://auth1.openbanking.zopa.com`
+> - Using `response_type: "code"` — production only supports `code id_token`. Sandbox accepts both, so this error only surfaces in production. Check `response_types_supported` in the OIDC discovery document.
 > - Including a `userinfo` claims block or `acr` — these are not required
 
 ## Resource Server URLs

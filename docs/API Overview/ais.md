@@ -8,7 +8,7 @@ The base URL for all AIS APIs is: `https://rs1.openbanking.zopa.com/open-banking
 ### Auth URL
 We currently only support redirect via a deeplink to the Zopa mobile app:
 
-- **AIS:** `zopa://consent-access-request?client_id=<client_id>&response_type=code&scope=openid%20accounts&request=<signed_JWT>`
+- **AIS:** `zopa://consent-access-request?client_id=<client_id>&response_type=code%20id_token&scope=openid%20accounts&request=<signed_JWT>`
 
 See the [Production Environment](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/30-production.md) page for full details on how to construct the `request` JWT, including required claims and common mistakes.
 
