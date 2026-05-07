@@ -12,7 +12,7 @@ Our production environment conforms to FAPI 1.0 Advanced. Sandbox offers less st
 
 ## Authorisation URL
 
-The authorisation endpoint is the one parameter that cannot be derived from the discovery document. Rather than a standard HTTPS endpoint, we use `zopa://` deeplinks to redirect the PSU into the Zopa mobile app. The deeplink differs by consent type:
+The authorisation endpoint is the one parameter that cannot be derived from the discovery document. Zopa is an app-based bank — PSU authorisation is handled exclusively via the Zopa mobile app, which must be installed on the user's device. Rather than a standard HTTPS endpoint, we use `zopa://` deeplinks to redirect the PSU into the app. The deeplink differs by consent type:
 
 - **AIS:** `zopa://consent-access-request?client_id=<client_id>&response_type=code%20id_token&scope=openid%20accounts&request=<signed_JWT>`
 - **PIS Single Payment:** `zopa://open-banking/pis-single-payment-consent?client_id=<client_id>&response_type=code%20id_token&scope=openid%20payments&request=<signed_JWT>`
