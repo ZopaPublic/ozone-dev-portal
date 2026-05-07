@@ -24,11 +24,6 @@ The scope must include `openid` in both the deeplink URL and the JWT payload —
 - AIS: `openid accounts`
 - PIS: `openid payments`
 
-The supported `response_type` values differ between environments. Always check the `response_types_supported` field in the OIDC discovery document for the environment you are targeting:
-- Production: `https://auth1.openbanking.zopa.com/.well-known/openid-configuration`
-- Sandbox: `https://auth1.openbanking-sandbox.zopa.com/.well-known/openid-configuration`
-
-Note that sandbox accepts `code` as well as `code id_token`, but production only supports `code id_token`. Using `code` alone in production will result in a `response_type_not_registered` error.
 
 **JWT Header:**
 ```json
