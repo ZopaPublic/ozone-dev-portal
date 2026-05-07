@@ -6,15 +6,21 @@
 
 ## Authorisation URL
 
+The supported parameters differ between environments. Always check the OIDC discovery document for the environment you are targeting:
+- Production: `https://auth1.openbanking.zopa.com/.well-known/openid-configuration`
+- Sandbox: `https://auth1.openbanking-sandbox.zopa.com/.well-known/openid-configuration`
+
+The one exception is the authorisation endpoint itself — rather than a single HTTPS endpoint, we use separate `zopa://` deeplinks per consent type as described below. This is not derivable from the discovery document.
+
 We currently only support redirect via a deeplink to the Zopa mobile app. Unlike most ASPSPs which use a standard HTTPS authorisation endpoint, our authorisation URLs use a custom `zopa://` deeplink scheme to redirect the PSU into the Zopa mobile app.
 
 > **Note:** The `/o3/v1.0/auth-code-url` endpoint is a convenience helper available on sandbox only to assist with testing. It builds the request object server-side using `alg=none` and **must not be used in production** — it does not support PS256 and will return a 500 error if attempted.
 
 The deeplink format differs by consent type:
 
-- **AIS:** `zopa://consent-access-request?client_id=<client_id>&response_type=code&scope=openid%20accounts&request=<signed_JWT>`
-- **PIS Single Payment:** `zopa://open-banking/pis-single-payment-consent?client_id=<client_id>&response_type=code&scope=openid%20payments&request=<signed_JWT>`
-- **PIS Standing Order:** `zopa://open-banking/pis-standing-order-consent?client_id=<client_id>&response_type=code&scope=openid%20payments&request=<signed_JWT>`
+- **AIS:** `zopa://consent-access-request?client_id=<client_id>&response_type=code%20id_token&scope=openid%20accounts&request=<signed_JWT>`
+- **PIS Single Payment:** `zopa://open-banking/pis-single-payment-consent?client_id=<client_id>&response_type=code%20id_token&scope=openid%20payments&request=<signed_JWT>`
+- **PIS Standing Order:** `zopa://open-banking/pis-standing-order-consent?client_id=<client_id>&response_type=code%20id_token&scope=openid%20payments&request=<signed_JWT>`
 
 ### Request Object JWT
 
@@ -23,6 +29,7 @@ The `request` parameter must be a **PS256-signed JWT** constructed using your re
 The scope must include `openid` in both the deeplink URL and the JWT payload — the value depends on the consent type:
 - AIS: `openid accounts`
 - PIS: `openid payments`
+
 
 **JWT Header:**
 ```json
@@ -38,7 +45,7 @@ The scope must include `openid` in both the deeplink URL and the JWT payload —
 {
   "iss": "<your_client_id>",
   "aud": "https://auth1.openbanking.zopa.com",
-  "response_type": "code",
+  "response_type": "code id_token",
   "client_id": "<your_client_id>",
   "redirect_uri": "<your_registered_redirect_uri>",
   "scope": "openid accounts",
@@ -62,7 +69,7 @@ The scope must include `openid` in both the deeplink URL and the JWT payload —
 {
   "iss": "<your_client_id>",
   "aud": "https://auth1.openbanking.zopa.com",
-  "response_type": "code",
+  "response_type": "code id_token",
   "client_id": "<your_client_id>",
   "redirect_uri": "<your_registered_redirect_uri>",
   "scope": "openid payments",
@@ -84,6 +91,7 @@ The scope must include `openid` in both the deeplink URL and the JWT payload —
 > **Common mistakes:**
 > - Using `scope: "payments"` or `scope: "accounts"` — `openid` must always be included
 > - Using `aud: "https://as1.openbanking.zopa.com"` — the correct value is `https://auth1.openbanking.zopa.com`
+> - Using `response_type: "code"` — production only supports `code id_token` as required by FAPI 1.0 Advanced. Sandbox accepts both, so this error only surfaces when moving to production.
 > - Including a `userinfo` claims block or `acr` — these are not required
 
 ## Resource Server URLs
@@ -105,7 +113,7 @@ The `aud` claim used in the outer JWT of a Dynamic Client Registration request i
 As defined further in the Zopa Open Banking API Specification
 
 - ID Token Signing Algorithm: `PS256`
-- Response Types: `code id_token`
+- Response Types: `code id_token` — required by FAPI 1.0 Advanced. Sandbox also accepts `code` for ease of testing.
 - Request Object Signing Algorithms: `PS256`
 - Token Endpoint Auth Signing Algorithms: `PS256`
 - Token Endpoint Auth Methods: `private_key_jwt`, `tls_client_auth`
