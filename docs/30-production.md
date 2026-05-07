@@ -2,9 +2,11 @@
 
 ## OIDC Discovery
 
-The OIDC discovery documents describe the supported parameters for each environment:
-- Production: `https://auth1.openbanking.zopa.com/.well-known/openid-configuration`
-- Sandbox: `https://auth1.openbanking-sandbox.zopa.com/.well-known/openid-configuration`
+- Base URL: `https://auth1.openbanking.zopa.com/`
+- Discovery document: `https://auth1.openbanking.zopa.com/.well-known/openid-configuration`
+- Sandbox discovery document: `https://auth1.openbanking-sandbox.zopa.com/.well-known/openid-configuration`
+
+The discovery documents describe the supported parameters for each environment.
 
 Our production environment conforms to FAPI 1.0 Advanced. Sandbox offers less strict profiles to assist with integration testing — always verify your integration against the production discovery document before going live.
 
