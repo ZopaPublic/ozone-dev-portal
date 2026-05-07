@@ -90,6 +90,7 @@ Note that sandbox accepts `code` as well as `code id_token`, but production only
 > **Common mistakes:**
 > - Using `scope: "payments"` or `scope: "accounts"` — `openid` must always be included
 > - Using `aud: "https://as1.openbanking.zopa.com"` — the correct value is `https://auth1.openbanking.zopa.com`
+> - Using an unsupported `response_type` — check `response_types_supported` in the OIDC discovery document for the environment you are targeting
 > - Including a `userinfo` claims block or `acr` — these are not required
 
 ## Resource Server URLs
