@@ -107,7 +107,7 @@ The `aud` claim used in the outer JWT of a Dynamic Client Registration request i
 As defined further in the Zopa Open Banking API Specification
 
 - ID Token Signing Algorithm: `PS256`
-- Response Types: `code id_token` — required by FAPI 1.0 Advanced. The `id_token` returned in the redirect contains a `c_hash` claim (a hash of the authorisation code), cryptographically binding the two together and preventing authorisation code injection attacks. Plain `code` is not supported in production. Sandbox accepts both for ease of testing.
+- Response Types: `code id_token` — required by FAPI 1.0 Advanced. Sandbox also accepts `code` for ease of testing.
 - Request Object Signing Algorithms: `PS256`
 - Token Endpoint Auth Signing Algorithms: `PS256`
 - Token Endpoint Auth Methods: `private_key_jwt`, `tls_client_auth`
