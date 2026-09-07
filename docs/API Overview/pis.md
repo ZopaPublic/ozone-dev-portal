@@ -20,6 +20,7 @@ The Zopa API __does not__ currently support:
 - International payments
 - File & Bulk payments
 - `payment-details` end-points
+- `ReadRefundAccount` — the `Data.ReadRefundAccount`, `Data.Refund.Account`, and `Data.Debtor` fields are not currently supported. Payment GET responses will not include refund account or debtor account details.
 
 The swagger for our PIS API can be found [here](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/payment-initiation-openapi.yaml)
 
