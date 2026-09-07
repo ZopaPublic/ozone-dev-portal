@@ -39,6 +39,7 @@ The Zopa API __does not__ currently support:
 - International payments
 - File & Bulk payments
 - `payment-details` end-points
+- `ReadRefundAccount` — the `Data.ReadRefundAccount`, `Data.Refund.Account`, and `Data.Debtor` fields are not currently supported. Payment GET responses will not include refund account or debtor account details.
 
 The swagger for our PIS API can be found [here](/perry/developer/documentation?resource=euhub-zopa-portal&document=swagger/payment-initiation-openapi.yaml)
 
@@ -63,7 +64,7 @@ The payment reference is specified using `RemittanceInformation/Structured/Credi
 
 The reference **must** also:
 - Be 18 characters or less
-- Match the regex: `^[a-zA-Z0-9\\/\\-?:().,’+\\s#=!\"%&*<>;{@\\r\\n]*\$`
+- Match the regex: `^[a-zA-Z0-9\\/\\-?:().,'+\\s#=!\"%&*<>;{@\\r\\n]*\$`
 - Not contain a PAN (a 16 digit number passing a LUHN check)
 
 Payment requests with references which do not conform to the above will be rejected. The PISP may also opt to populate reference field on behalf of the PSU.
@@ -85,7 +86,7 @@ The payment reference is specified using `RemittanceInformation/Structured/Credi
 
 The reference **must** also:
 - Be 18 characters or less
-- Match the regex: `^[a-zA-Z0-9\\/\\-?:().,’+\\s#=!\"%&*<>;{@\\r\\n]*\$`
+- Match the regex: `^[a-zA-Z0-9\\/\\-?:().,'+\\s#=!\"%&*<>;{@\\r\\n]*\$`
 - Not contain a PAN (a 16 digit number passing a LUHN check)
 
 Payment requests with references which do not conform to the above will be rejected. The PISP may also opt to populate reference field on behalf of the PSU.

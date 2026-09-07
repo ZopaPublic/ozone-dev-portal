@@ -41,6 +41,8 @@ The Interim Available balance is the value displayed to our customers within the
 
 Pagination is supported on `GET /accounts/{AccountId}/transactions` end point with a page size of 100 transactions.
 
+**Transaction IDs and status changes:** Transaction IDs (`TransactionId`) may differ between the `PENDING` and `BOOKED` states for the same underlying transaction. TPPs should not rely on a pending transaction's ID persisting once the transaction is booked.
+
 ##### Proprietary Bank Transaction Codes
 The proprietary bank transaction codes returned vary between Zopa products. Details of these can be found [here](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/API%20Overview/pbtc.md)
 
