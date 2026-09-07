@@ -4,9 +4,28 @@
 The base URL for all PIS APIs is: `https://rs1.openbanking.zopa.com/open-banking/v4.0/pisp/**`
 
 ### Auth URL
-We currently only support redirect via a deeplink to the Zopa mobile app - this deeplink is different depending on the type of consents (AIS or PIS) and needs to be constructed as follows: 
+We currently only support redirect via a deeplink to the Zopa mobile app for PIS consent authorisation. The deeplink differs by payment type:
 
-- PIS Authorisation URL: `zopa://open-banking/pis-single-payment-consent?client_id={{ the client ID }}&response_type=code&scope=openid%20payments&request={{the JWT token}}`
+- **Single Payment:** `zopa://open-banking/pis-single-payment-consent?client_id=<client_id>&response_type=code%20id_token&scope=openid%20payments&request=<signed_JWT>`
+- **Standing Order:** `zopa://open-banking/pis-standing-order-consent?client_id=<client_id>&response_type=code%20id_token&scope=openid%20payments&request=<signed_JWT>`
+
+See the [Production Environment](/perry/developer/documentation?resource=euhub-zopa-portal&document=docs/30-production.md) page for full details on how to construct the `request` JWT, including required claims and common mistakes.
+
+## JWS Usage Guidance
+
+All payment initiation requests to Zopa must be protected using a detached JSON Web Signature (JWS) as per the Open Banking standard. This ensures the integrity and authenticity of the payment payload.
+
+**Key requirements:**
+- The JWS must be generated using the signing key registered with Zopa.
+- The required algorithm is `PS256` (RSASSA-PSS using SHA-256). Ensure your signing library supports this algorithm.
+- The `x-jws-signature` header must be included in all relevant API requests, containing the detached JWS for the request body.
+- The payload must not be altered after signing; any modification (including whitespace or key order) will result in signature validation failure.
+- Canonicalise the JSON payload before signing (remove extra spaces, ensure consistent key ordering if required by your library).
+- The JWS must be detached: do not include the payload in the JWS itself—sign the payload and send only the signature in the `x-jws-signature` header.
+- Set the `Content-Type` header to `application/json`.
+- Double-check that the payload sent in the request matches exactly what was signed.
+- If you receive a signature validation error, compare the raw payload you sent with what you signed—any difference will cause failure.
+- If the JWS is invalid or missing, the request will be rejected with an error.
 
 ## Supported Payment Types
 The Zopa API currently only supports:
@@ -22,7 +41,7 @@ The Zopa API __does not__ currently support:
 - `payment-details` end-points
 - `ReadRefundAccount` — the `Data.ReadRefundAccount`, `Data.Refund.Account`, and `Data.Debtor` fields are not currently supported. Payment GET responses will not include refund account or debtor account details.
 
-The swagger for our PIS API can be found [here](/perry/developer/documentation?resource=euhub-zopa-portal-new&document=swagger/payment-initiation-openapi.yaml)
+The swagger for our PIS API can be found [here](/perry/developer/documentation?resource=euhub-zopa-portal&document=swagger/payment-initiation-openapi.yaml)
 
 
 # Supported Parameters
@@ -33,9 +52,9 @@ The payment amount is set using the `InstructedAmount/Amount` field.
 
 Payments have the following limits which are aligned with the limits applied in the Zopa app:
 - Payments to Zopa Smart Saver or to a Verified Self Owned Account (aka Nominated Bank Account) - £250,000 daily limit
-- Payments to any other account - £10,000 daily limit, £20,000 weekly limit
+- Payments to any other account - £10,000 daily limit, £30,000 weekly limit
 
-Zopa suggest PISPs notify the PSU that the same limits apply as in their Zopa app. It is possible from time to time that `domestic-payment-consents` is authorised, but the payment initiation fails due to account limits.
+These limits apply across all outbound transactions (not just payments initiated via PIS). Zopa suggest PISPs notify the PSU that the same limits apply as in their Zopa app. It is possible from time to time that `domestic-payment-consents` is authorised, but the payment initiation fails due to account limits.
 
 ### Currency
 - `InstructedAmount/Currency` must be `GBP`
@@ -45,7 +64,7 @@ The payment reference is specified using `RemittanceInformation/Structured/Credi
 
 The reference **must** also:
 - Be 18 characters or less
-- Match the regex: `^[a-zA-Z0-9\\/\\-?:().,’+\\s#=!\"%&*<>;{@\\r\\n]*\$`
+- Match the regex: `^[a-zA-Z0-9\\/\\-?:().,'+\\s#=!\"%&*<>;{@\\r\\n]*\$`
 - Not contain a PAN (a 16 digit number passing a LUHN check)
 
 Payment requests with references which do not conform to the above will be rejected. The PISP may also opt to populate reference field on behalf of the PSU.
@@ -67,7 +86,7 @@ The payment reference is specified using `RemittanceInformation/Structured/Credi
 
 The reference **must** also:
 - Be 18 characters or less
-- Match the regex: `^[a-zA-Z0-9\\/\\-?:().,’+\\s#=!\"%&*<>;{@\\r\\n]*\$`
+- Match the regex: `^[a-zA-Z0-9\\/\\-?:().,'+\\s#=!\"%&*<>;{@\\r\\n]*\$`
 - Not contain a PAN (a 16 digit number passing a LUHN check)
 
 Payment requests with references which do not conform to the above will be rejected. The PISP may also opt to populate reference field on behalf of the PSU.
@@ -90,19 +109,3 @@ Attempts to initiate a mandate with a different frequency will fail.
 
 ### Execution Notes
 If a monthly mandate is scheduled to occur on e.g. 31st of each month, in months where this day does not occur, the payment will be made the preceding day (i.e. the 30th). If a Standing Order is scheduled with a date that does not exist (e.g. 30th February) the request will error.
-
-## JWS Usage Guidance
-
-All payment initiation requests to Zopa must be protected using a detached JSON Web Signature (JWS) as per the Open Banking standard. This ensures the integrity and authenticity of the payment payload.
-
-**Key requirements:**
-- The JWS must be generated using the signing key registered with Zopa.
-- The required algorithm is `PS256` (RSASSA-PSS using SHA-256). Ensure your signing library supports this algorithm.
-- The `x-jws-signature` header must be included in all relevant API requests, containing the detached JWS for the request body.
-- The payload must not be altered after signing; any modification (including whitespace or key order) will result in signature validation failure.
-- Canonicalise the JSON payload before signing (remove extra spaces, ensure consistent key ordering if required by your library).
-- The JWS must be detached: do not include the payload in the JWS itself—sign the payload and send only the signature in the `x-jws-signature` header.
-- Set the `Content-Type` header to `application/json`.
-- Double-check that the payload sent in the request matches exactly what was signed.
-- If you receive a signature validation error, compare the raw payload you sent with what you signed—any difference will cause failure.
-- If the JWS is invalid or missing, the request will be rejected with an error.
